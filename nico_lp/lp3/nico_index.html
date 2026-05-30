@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hair Salon Nico｜幡ヶ谷の髪質改善トリートメント専門サロン</title>
+<meta name="description" content="東京都渋谷区幡ヶ谷駅徒歩3分。完全予約制のプライベートサロンで、髪質改善トリートメント専門。30〜50代の大人女性の美髪を叶えます。" />
+<meta name="keywords" content="美容院,幡ヶ谷,髪質改善,トリートメント,プライベートサロン,渋谷区" />
+<meta name="theme-color" content="#f5f0eb" />
+
+<!-- OGP -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Hair Salon Nico｜幡ヶ谷の髪質改善トリートメント専門サロン" />
+<meta property="og:description" content="完全予約制のプライベートサロンで、大人女性の美髪を叶える。京王新線幡ヶ谷駅 徒歩3分。" />
+<meta property="og:image" content="https://placehold.co/1200x630/f5f0eb/8b7355/png?text=Hair+Salon+Nico" />
+<meta property="og:url" content="https://example.com/" />
+<meta property="og:site_name" content="Hair Salon Nico" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hair Salon Nico｜幡ヶ谷の髪質改善トリートメント専門サロン" />
+<meta name="twitter:description" content="完全予約制のプライベートサロンで、大人女性の美髪を叶える。" />
+<meta name="twitter:image" content="https://placehold.co/1200x630/f5f0eb/8b7355/png?text=Hair+Salon+Nico" />
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          beige: { 50: '#fbf8f5', 100: '#f5f0eb', 200: '#ede4d8' },
+          brown: { DEFAULT: '#8b7355', 700: '#6f5b42', 900: '#3f3528' },
+          olive: { DEFAULT: '#adc178', 600: '#8fa45f' },
+        },
+        fontFamily: {
+          serif: ['"Noto Serif JP"', 'serif'],
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: #3f3528; background-color: #fbf8f5; }
+  .font-serif-jp { font-family: 'Noto Serif JP', serif; }
+
+  /* Hero — 背景画像（スマホはinline img使用） */
+  .hero-bg {
+    background-image: url('images/hero_nico.png');
+    background-size: cover;
+    background-position: 65% center;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(245,240,235,0.92) 0%, rgba(245,240,235,0.78) 30%, rgba(245,240,235,0.35) 55%, rgba(245,240,235,0) 75%);
+    pointer-events: none;
+  }
+
+  /* スマホ用インライン画像のグラデーション */
+  .hero-mobile-img {
+    position: relative;
+  }
+  .hero-mobile-img::after {
+    content: '';
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(251,248,245,0) 55%, rgba(251,248,245,0.7) 80%, rgba(251,248,245,1) 100%);
+  }
+
+  /* 縦書きモード */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* ヒーローキャッチコピーの共通スタイル（タブレット・PC） */
+  .hero-tagline {
+    position: absolute;
+    z-index: 2000;
+  }
+
+  /* PC（1024px以上）: 縦中央・右配置 */
+  @media (min-width: 1024px) {
+    .hero-bg { background-position: center right; }
+    .hero-tagline {
+      top: 50%;
+      right: 2.5rem;
+      transform: translateY(-50%);
+    }
+    .hero-vertical-text {
+      font-size: 2.4rem;
+      line-height: 2.2;
+    }
+  }
+
+  /* タブレット（640px〜1023px）: 右配置・bg調整 */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .hero-bg { background-position: 70% center; }
+    .hero-tagline {
+      top: 18%;
+      right: 1.5rem;
+    }
+    .hero-vertical-text {
+      font-size: 1.8rem;
+      line-height: 2;
+    }
+  }
+
+  /* スマホ（639px以下）: bg画像なし・フォントサイズ強制上書き */
+  @media (max-width: 639px) {
+    .hero-bg { background-image: none; }
+    .hero-bg::before { display: none; }
+    .hero-vertical-text {
+      font-size: 1.2rem !important;
+      line-height: 2;
+    }
+  }
+
+  /* Section heading underline */
+  .heading-mark::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: #8b7355;
+    margin: 16px auto 0;
+  }
+
+  /* Reason banner */
+  .reason-banner {
+    background: linear-gradient(90deg, #8b7355 0%, #6f5b42 100%);
+  }
+
+  /* Floating CTA blur */
+  .floating-cta {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* CTA image overlay */
+  .cta-image-1 {
+    background-image:
+      linear-gradient(rgba(63,53,40,0.45), rgba(63,53,40,0.55)),
+      url('images/nico_cta.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .cta-image-2 {
+    background-image:
+      linear-gradient(rgba(63,53,40,0.4), rgba(63,53,40,0.55)),
+      url('images/nico_cta2.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Subtle fade-in on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* Star color */
+  .star { color: #d9a441; }
+
+  /* Smooth anchor offset for sticky-ish */
+  section { scroll-margin-top: 64px; }
+
+  /* Hide floating CTA when in hero/footer in-view */
+  .floating-cta.is-hidden { opacity: 0; pointer-events: none; transform: translateY(20px); }
+  .floating-cta { transition: opacity .3s ease, transform .3s ease; }
+
+  /* Calendly placeholder card */
+  .calendly-placeholder {
+    background:
+      repeating-linear-gradient(45deg, #f5f0eb, #f5f0eb 10px, #ede4d8 10px, #ede4d8 20px);
+  }
+  .hero-line {
+  display: block;
+  line-height: 1.8; /* 好きなだけ広げられる */
+}
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ========== Header ========== -->
+<header class="fixed top-0 inset-x-0 z-40 bg-beige-50/85 backdrop-blur border-b border-beige-200">
+  <div class="max-w-6xl mx-auto px-5 h-14 md:h-16 flex items-center justify-between">
+    <a href="#hero" class="font-serif-jp text-lg md:text-xl tracking-widest text-brown-900">
+      Hair Salon <span class="text-brown">Nico</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-brown-900">
+      <a href="#worries" class="hover:text-brown transition">お悩み</a>
+      <a href="#reasons" class="hover:text-brown transition">選ばれる理由</a>
+      <a href="#menu" class="hover:text-brown transition">メニュー</a>
+      <a href="#voice" class="hover:text-brown transition">お客様の声</a>
+      <a href="#stylist" class="hover:text-brown transition">スタイリスト</a>
+      <a href="#access" class="hover:text-brown transition">アクセス</a>
+    </nav>
+    <a href="#booking" class="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brown text-white text-sm hover:bg-brown-700 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>
+      ご予約
+    </a>
+  </div>
+</header>
+
+<!-- ========== 1. HERO ========== -->
+<section id="hero" class="relative md:min-h-[70vh] lg:min-h-[85vh] hero-bg flex flex-col justify-end sm:justify-center pt-14 md:pt-16 overflow-hidden">
+  <!-- スマホ用インライン画像（タブレット・PCは背景画像を使用） -->
+  <div class="sm:hidden w-full hero-mobile-img">
+    <img src="images/hero_nico.png" alt="Hair Salon Nico" class="w-full h-[60vh] object-cover object-center" />
+    <!-- スマホ用：縦書き、画像左側に重なる -->
+    <p class="vertical-text absolute top-[15%] left-[10px] z-[2000] font-serif-jp text-brown-900 tracking-[0.3em] hero-vertical-text">
+      自分史上、最高の美髪へ
+    </p>
+  </div>
+
+  <!-- タブレット・PC用：縦書き（位置はCSSで制御） -->
+  <div class="hero-tagline hidden sm:block">
+    <p class="vertical-text font-serif-jp text-brown/85 tracking-[0.45em] hero-vertical-text">
+      自分史上、最高の美髪へ
+    </p>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-10 py-10 sm:py-28 w-full">
+    <div class="max-w-full sm:max-w-[52%] md:max-w-[50%] text-center sm:text-left">
+    <p class="font-serif-jp text-brown text-xs sm:text-sm md:text-base tracking-[0.3em] mt-2 sm:mt-5 mb-5">— Hair Salon Nico —</p>
+   <h1 class="hero-title font-serif-jp font-bold text-brown-900
+  text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide mb-8">
+
+  <!-- スマホ用（横書き1行） -->
+  <span class="hero-mobile inline md:hidden whitespace-nowrap">
+    大人女性の美髪を叶える
+  </span>
+
+  <!-- PC・タブレット用（縦書き2行） -->
+  <span class="hero-desktop hidden md:inline-block md:vertical-text">
+    <span class="hero-line">大人女性の</span>
+    <span class="hero-line">美髪を叶える</span>
+  </span>
+
+</h1>
+    <p class="text-brown-900/90 text-sm md:text-base leading-loose mb-10">
+      完全予約制のプライベートサロン<br/>
+      髪質改善トリートメント専門で、<br class="sm:hidden"/>あなたの髪に寄り添います。
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto sm:mx-0">
+      <a href="tel:0312345678" class="group inline-flex items-center justify-center gap-3 px-6 py-4 rounded-full bg-brown text-white hover:bg-brown-700 transition shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="text-left">
+          <span class="block text-[11px] tracking-widest opacity-80">PHONE</span>
+          <span class="block font-medium tracking-wide">03-1234-5678</span>
+        </span>
+      </a>
+      <a href="https://line.me/" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-full bg-olive text-white hover:bg-olive-600 transition shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        <span class="text-left">
+          <span class="block text-[11px] tracking-widest opacity-80">LINE</span>
+          <span class="block font-medium tracking-wide">LINEで予約する</span>
+        </span>
+      </a>
+    </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center text-brown/80">
+      <span class="text-[10px] tracking-[0.4em] mb-2">SCROLL</span>
+      <span class="block w-px h-10 bg-brown/40 animate-pulse"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. お悩み ========== -->
+<section id="worries" class="py-20 md:py-28 bg-beige-50">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-14 reveal">
+      <p class="text-brown text-xs md:text-sm tracking-[0.3em] mb-3">YOUR CONCERNS</p>
+      <h2 class="font-serif-jp text-3xl md:text-4xl text-brown-900 heading-mark">
+        こんなお悩み、ありませんか？
+      </h2>
+      <p class="mt-6 text-sm md:text-base text-brown-700 leading-loose">
+        年齢を重ねるにつれて、髪の変化を感じる方が増えています。<br class="hidden md:block"/>
+        Nicoでは一人ひとりの髪と向き合い、根本からの改善をご提案します。
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <!-- Image -->
+      <div class="reveal order-2 md:order-1">
+        <div class="relative">
+          <img src="images/onayami.png" alt="髪の悩みイメージ" class="rounded-sm w-full aspect-[4/5] object-cover shadow-md" />
+          <div class="absolute -bottom-4 -right-4 w-24 h-24 border border-brown hidden md:block"></div>
+        </div>
+      </div>
+
+      <!-- Worries list -->
+      <ul class="space-y-5 order-1 md:order-2">
+        <!-- Worry 1 -->
+        <li class="reveal flex items-start gap-5 p-6 md:p-7 bg-white rounded-sm shadow-sm border border-beige-200">
+          <span class="shrink-0 w-12 h-12 rounded-full bg-beige-100 flex items-center justify-center text-brown">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <div>
+            <h3 class="font-medium text-brown-900 text-lg mb-1">髪のパサつきが気になる</h3>
+            <p class="text-sm text-brown-700 leading-relaxed">朝起きた時の広がりや、毛先のごわつき。トリートメントしてもすぐに戻ってしまう…。</p>
+          </div>
+        </li>
+        <!-- Worry 2 -->
+        <li class="reveal flex items-start gap-5 p-6 md:p-7 bg-white rounded-sm shadow-sm border border-beige-200">
+          <span class="shrink-0 w-12 h-12 rounded-full bg-beige-100 flex items-center justify-center text-brown">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <div>
+            <h3 class="font-medium text-brown-900 text-lg mb-1">うねり・白髪が目立つ</h3>
+            <p class="text-sm text-brown-700 leading-relaxed">年齢とともに増えるうねりや白髪。隠すだけでなく、健やかに見える髪へ整えたい。</p>
+          </div>
+        </li>
+        <!-- Worry 3 -->
+        <li class="reveal flex items-start gap-5 p-6 md:p-7 bg-white rounded-sm shadow-sm border border-beige-200">
+          <span class="shrink-0 w-12 h-12 rounded-full bg-beige-100 flex items-center justify-center text-brown">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <div>
+            <h3 class="font-medium text-brown-900 text-lg mb-1">スタイリングが決まらない</h3>
+            <p class="text-sm text-brown-700 leading-relaxed">時間をかけても、夕方には崩れてしまう。自宅でも再現できるスタイルにしたい。</p>
+          </div>
+        </li>
+        <!-- Worry 4 -->
+        <li class="reveal flex items-start gap-5 p-6 md:p-7 bg-white rounded-sm shadow-sm border border-beige-200">
+          <span class="shrink-0 w-12 h-12 rounded-full bg-beige-100 flex items-center justify-center text-brown">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <div>
+            <h3 class="font-medium text-brown-900 text-lg mb-1">頭皮がベタつく、フケが出やすくなった。</h3>
+            <p class="text-sm text-brown-700 leading-relaxed">ちゃんとシャンプーしてるのに、最近頭皮のベタつきやにおいが気になる。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. 選ばれる3つの理由 ========== -->
+<section id="reasons" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-16 reveal">
+      <p class="text-brown text-xs md:text-sm tracking-[0.3em] mb-3">OUR REASONS</p>
+      <h2 class="font-serif-jp text-3xl md:text-4xl text-brown-900 heading-mark">
+        当サロンが選ばれる<br class="sm:hidden"/>3つの理由
+      </h2>
+    </div>
+
+    <!-- Reason 1 -->
+    <div class="mb-20">
+      <div class="reason-banner text-white px-6 md:px-10 py-3 mb-8 reveal flex items-center gap-4">
+        <span class="font-serif-jp text-xs tracking-[0.4em]">REASON</span>
+        <span class="font-serif-jp text-2xl md:text-3xl">01</span>
+        <span class="block w-8 h-px bg-white/60"></span>
+        <span class="text-sm md:text-base tracking-wider">Private Salon</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+        <div class="reveal">
+          <img src="images/reason1.jpg" alt="プライベート空間" class="w-full aspect-[4/3] object-cover rounded-sm shadow-md" />
+        </div>
+        <div class="reveal">
+          <h3 class="font-serif-jp text-2xl md:text-3xl text-brown-900 leading-snug mb-5">
+            完全予約制の<br/>プライベート空間
+          </h3>
+          <div class="w-10 h-px bg-brown mb-6"></div>
+          <p class="text-sm md:text-base text-brown-700 leading-loose">
+            お一人ずつのご案内で、周りを気にせずゆったりとお過ごしいただけます。<br/>
+            カウンセリングから仕上げまで、担当スタイリストが責任を持って対応いたします。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason 2 (alternate) -->
+    <div class="mb-20">
+      <div class="reason-banner text-white px-6 md:px-10 py-3 mb-8 reveal flex items-center gap-4">
+        <span class="font-serif-jp text-xs tracking-[0.4em]">REASON</span>
+        <span class="font-serif-jp text-2xl md:text-3xl">02</span>
+        <span class="block w-8 h-px bg-white/60"></span>
+        <span class="text-sm md:text-base tracking-wider">Hair Repair</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+        <div class="reveal md:order-2">
+          <img src="images/reason2.jpg" alt="髪質改善トリートメント" class="w-full aspect-[4/3] object-cover rounded-sm shadow-md" />
+        </div>
+        <div class="reveal md:order-1">
+          <h3 class="font-serif-jp text-2xl md:text-3xl text-brown-900 leading-snug mb-5">
+            髪質改善<br/>トリートメント専門
+          </h3>
+          <div class="w-10 h-px bg-brown mb-6"></div>
+          <p class="text-sm md:text-base text-brown-700 leading-loose">
+            髪の状態を丁寧に診断し、ダメージレベルやライフスタイルに合わせたトリートメントをご提案。続けるほどに、指通りの良い素直な髪へ導きます。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason 3 -->
+    <div>
+      <div class="reason-banner text-white px-6 md:px-10 py-3 mb-8 reveal flex items-center gap-4">
+        <span class="font-serif-jp text-xs tracking-[0.4em]">REASON</span>
+        <span class="font-serif-jp text-2xl md:text-3xl">03</span>
+        <span class="block w-8 h-px bg-white/60"></span>
+        <span class="text-sm md:text-base tracking-wider">Style & Easy Care</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+        <div class="reveal">
+          <img src="images/reason3.jpg" alt="似合うと扱いやすさ" class="w-full aspect-[4/3] object-cover rounded-sm shadow-md" />
+        </div>
+        <div class="reveal">
+          <h3 class="font-serif-jp text-2xl md:text-3xl text-brown-900 leading-snug mb-5">
+            「似合う」と「扱いやすさ」<br/>の両立
+          </h3>
+          <div class="w-10 h-px bg-brown mb-6"></div>
+          <p class="text-sm md:text-base text-brown-700 leading-loose">
+            顔立ち・骨格・雰囲気・ライフスタイルを踏まえたご提案で、「似合う」と「毎日続けられるスタイル」を両立。ご自宅でのケア方法も丁寧にお伝えします。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image area as requested: イメージ画像 -->
+    <div class="mt-20 reveal">
+      <img src="images/nico_atmosphere.jpg" alt="サロンの雰囲気" class="w-full aspect-[8/3] object-cover rounded-sm" />
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. CTA Image (mid) ========== -->
+<section class="cta-image-1 py-24 md:py-32 text-white text-center px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <p class="font-serif-jp tracking-[0.4em] text-sm md:text-base mb-5 opacity-90">— First Visit —</p>
+    <h2 class="font-serif-jp text-3xl md:text-5xl leading-snug mb-6">
+      髪のお悩み、<br/>一度ご相談ください。
+    </h2>
+    <p class="text-sm md:text-base leading-loose mb-10 opacity-95">
+      初めての方も安心の丁寧なカウンセリング。<br/>
+      あなたに最適なメニューをご提案します。
+    </p>
+    <a href="#booking" class="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-white text-brown-900 hover:bg-beige-100 transition shadow-lg">
+      <span class="font-serif-jp tracking-widest">ご予約・お問い合わせ</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-4 h-4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ========== 5. スタイリング ========== -->
+<section id="styling" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-14 reveal">
+      <p class="text-brown text-xs md:text-sm tracking-[0.3em] mb-3">STYLING</p>
+      <h2 class="font-serif-jp text-3xl md:text-4xl text-brown-900 heading-mark">
+        スタイリング
+      </h2>
+      <p class="mt-6 text-sm md:text-base text-brown-700 leading-loose">
+        マンツーマン施術で、30代からのパサつき・うねりをしなやかに整えます。<br/>
+        髪質改善メニューで、毎日のスタイリングがもっと楽に。
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-10">
+      <figure class="reveal group overflow-hidden rounded-sm shadow-md">
+        <div class="overflow-hidden">
+          <img src="images/styling1_nico.jpg" alt="触れるたびにしなやかな艶を感じられるスタイリング" class="w-full object-cover group-hover:scale-105 transition duration-700" />
+        </div>
+        <figcaption class="pt-4 pb-2 text-center font-serif-jp text-brown-900 text-base md:text-lg tracking-wide">
+          触れるたび、しなやかな艶
+        </figcaption>
+      </figure>
+
+      <figure class="reveal group overflow-hidden rounded-sm shadow-md">
+        <div class="overflow-hidden">
+          <img src="images/styling2_nico.jpg" alt="光をまとったまとまりのあるロングスタイル" class="w-full object-cover group-hover:scale-105 transition duration-700" />
+        </div>
+        <figcaption class="pt-4 pb-2 text-center font-serif-jp text-brown-900 text-base md:text-lg tracking-wide">
+          光をまとった、まとまりロング
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. メニュー ========== -->
+<section id="menu" class="py-20 md:py-28 bg-beige-50">
+  <div class="max-w-4xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-14 reveal">
+      <p class="text-brown text-xs md:text-sm tracking-[0.3em] mb-3">MENU & PRICE</p>
+      <h2 class="font-serif-jp text-3xl md:text-4xl text-brown-900 heading-mark">
+        メニュー・料金表
+      </h2>
+      <p class="mt-6 text-xs md:text-sm text-brown-700">表記はすべて税込価格です。</p>
+    </div>
+
+    <div class="bg-white rounded-sm shadow-sm border border-beige-200 overflow-hidden reveal">
+      <ul class="divide-y divide-beige-200">
+        <li class="flex items-center justify-between gap-4 px-6 md:px-8 py-5 md:py-6">
+          <div class="flex items-center gap-4 min-w-0">
+            <span class="font-serif-jp text-brown text-sm md:text-base shrink-0 w-6">01</span>
+            <div class="min-w-0">
+              <h3 class="font-medium text-brown-900 text-base md:text-lg truncate">カット</h3>
+              <p class="text-xs md:text-sm text-brown-700 hidden sm:block">シャンプー・ブロー込み</p>
+            </div>
+          </div>
+          <p class="font-serif-jp text-brown-900 text-lg md:text-xl whitespace-nowrap">¥6,600</p>
+        </li>
+        <li class="flex items-center justify-between gap-4 px-6 md:px-8 py-5 md:py-6">
+          <div class="flex items-center gap-4 min-w-0">
+            <span class="font-serif-jp text-brown text-sm md:text-base shrink-0 w-6">02</span>
+            <div class="min-w-0">
+              <h3 class="font-medium text-brown-900 text-base md:text-lg truncate">カット + カラー</h3>
+              <p class="text-xs md:text-sm text-brown-700 hidden sm:block">大人世代に似合う透明感のあるカラー</p>
+            </div>
+          </div>
+          <p class="font-serif-jp text-brown-900 text-lg md:text-xl whitespace-nowrap">¥13,200</p>
+        </li>
+        <!-- Popular -->
+        <li class="flex items-center justify-between gap-4 px-6 md:px-8 py-5 md:py-6 bg-olive/5 relative">
+          <span class="absolute -top-px left-6 md:left-8 -translate-y-1/2 px-3 py-1 bg-olive text-white text-[10px] tracking-widest rounded-full shadow">
+            人気No.1
+          </span>
+          <div class="flex items-center gap-4 min-w-0">
+            <span class="font-serif-jp text-olive-600 text-sm md:text-base shrink-0 w-6">03</span>
+            <div class="min-w-0">
+              <h3 class="font-medium text-brown-900 text-base md:text-lg truncate">髪質改善トリートメント</h3>
+              <p class="text-xs md:text-sm text-brown-700 hidden sm:block">指通りの良い、なめらかな質感へ</p>
+            </div>
+          </div>
+          <p class="font-serif-jp text-brown-900 text-lg md:text-xl whitespace-nowrap">¥16,500</p>
+        </li>
+        <li class="flex items-center justify-between gap-4 px-6 md:px-8 py-5 md:py-6">
+          <div class="flex items-center gap-4 min-w-0">
+            <span class="font-serif-jp text-brown text-sm md:text-base shrink-0 w-6">04</span>
+            <div class="min-w-0">
+              <h3 class="font-medium text-brown-900 text-base md:text-lg truncate">ダメージレスパーマ</h3>
+              <p class="text-xs md:text-sm text-brown-700 hidden sm:block">髪に優しい薬剤で柔らかな質感に</p>
+            </div>
+          </div>
+          <p class="font-serif-jp text-brown-900 text-lg md:text-xl whitespace-nowrap">¥14,500</p>
+        </li>
+        <li class="flex items-center justify-between gap-4 px-6 md:px-8 py-5 md:py-6">
+          <div class="flex items-center gap-4 min-w-0">
+            <span class="font-serif-jp text-brown text-sm md:text-base shrink-0 w-6">05</span>
+            <div class="min-w-0">
+              <h3 class="font-medium text-brown-900 text-base md:text-lg truncate">髪質改善ストレート</h3>
+              <p class="text-xs md:text-sm text-brown-700 hidden sm:block">うねり・くせを自然なストレートに</p>
+            </div>
+          </div>
+          <p class="font-serif-jp text-brown-900 text-lg md:text-xl whitespace-nowrap">¥22,000</p>
+        </li>
+        <li class="flex items-center justify-between gap-4 px-6 md:px-8 py-5 md:py-6">
+          <div class="flex items-center gap-4 min-w-0">
+            <span class="font-serif-jp text-brown text-sm md:text-base shrink-0 w-6">06</span>
+            <div class="min-w-0">
+              <h3 class="font-medium text-brown-900 text-base md:text-lg truncate">ヘッドスパ</h3>
+              <p class="text-xs md:text-sm text-brown-700 hidden sm:block">頭皮環境の改善、疲労回復を促します。</p>
+            </div>
+          </div>
+          <p class="font-serif-jp text-brown-900 text-lg md:text-xl whitespace-nowrap">¥12,000</p>
+        </li>
+      </ul>
+    </div>
+
+    <p class="text-center text-xs text-brown-700 mt-6">※ 髪の長さ・状態により料金が変動する場合がございます。</p>
+  </div>
+</section>
+
+<!-- ========== 6. お客様の声 ========== -->
+<section id="voice" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-14 reveal">
+      <p class="text-brown text-xs md:text-sm tracking-[0.3em] mb-3">VOICE</p>
+      <h2 class="font-serif-jp text-3xl md:text-4xl text-brown-900 heading-mark">
+        お客様の声
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      <!-- Voice 1 -->
+      <article class="reveal bg-beige-50 p-7 md:p-8 rounded-sm border border-beige-200">
+        <div class="star text-base mb-4" aria-label="5点満点">★★★★★</div>
+        <p class="font-serif-jp text-brown-900 text-lg leading-snug mb-4">"指通りが見違えるほど。"</p>
+        <p class="text-sm text-brown-700 leading-loose mb-6">
+          長年悩んでいた髪のうねりが、トリートメントを続けるうちに落ち着いてきました。朝のスタイリングがとにかく楽になりました。
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-beige-200">
+          <div class="w-10 h-10 rounded-full bg-beige-200 flex items-center justify-center text-brown font-serif-jp text-sm">M.A</div>
+          <div>
+            <p class="text-sm text-brown-900 font-medium">M.A 様</p>
+            <p class="text-xs text-brown-700">40代・会社員</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Voice 2 -->
+      <article class="reveal bg-beige-50 p-7 md:p-8 rounded-sm border border-beige-200">
+        <div class="star text-base mb-4" aria-label="5点満点">★★★★★</div>
+        <p class="font-serif-jp text-brown-900 text-lg leading-snug mb-4">"丁寧なカウンセリング。"</p>
+        <p class="text-sm text-brown-700 leading-loose mb-6">
+          初回からじっくり髪の悩みを聞いてくださり、無理な提案がなく安心。仕上がりも自然で、家族にも褒められました。
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-beige-200">
+          <div class="w-10 h-10 rounded-full bg-beige-200 flex items-center justify-center text-brown font-serif-jp text-sm">S.K</div>
+          <div>
+            <p class="text-sm text-brown-900 font-medium">S.K 様</p>
+            <p class="text-xs text-brown-700">50代・自営業</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Voice 3 -->
+      <article class="reveal bg-beige-50 p-7 md:p-8 rounded-sm border border-beige-200">
+        <div class="star text-base mb-4" aria-label="5点満点">★★★★★</div>
+        <p class="font-serif-jp text-brown-900 text-lg leading-snug mb-4">"自分に似合うが見つかった。"</p>
+        <p class="text-sm text-brown-700 leading-loose mb-6">
+          骨格や雰囲気から似合うスタイルを丁寧に提案いただき、毎日が楽しくなりました。落ち着いた空間も心地よいです。
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-beige-200">
+          <div class="w-10 h-10 rounded-full bg-beige-200 flex items-center justify-center text-brown font-serif-jp text-sm">Y.T</div>
+          <div>
+            <p class="text-sm text-brown-900 font-medium">Y.T 様</p>
+            <p class="text-xs text-brown-700">30代・主婦</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. スタイリスト ========== -->
+<section id="stylist" class="py-20 md:py-28 bg-beige-50">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-14 reveal">
+      <p class="text-brown text-xs md:text-sm tracking-[0.3em] mb-3">STYLIST</p>
+      <h2 class="font-serif-jp text-3xl md:text-4xl text-brown-900 heading-mark">
+        スタイリスト紹介
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 md:gap-10">
+      <!-- Stylist 1 -->
+      <article class="reveal text-center">
+        <div class="relative inline-block mb-6">
+          <img src="images/staff1.jpg" alt="Stylist A" class="w-full max-w-xs aspect-[4/5] object-cover rounded-sm shadow-md" />
+        </div>
+        <p class="text-xs tracking-[0.3em] text-brown mb-2">OWNER / STYLIST</p>
+        <h3 class="font-serif-jp text-2xl text-brown-900 mb-2">中村 美香</h3>
+        <p class="text-sm text-brown-700 mb-4">Mika Nakamura</p>
+        <p class="text-sm text-brown-700 leading-loose text-left max-w-xs mx-auto">
+          表参道の人気サロンで10年以上経験を積み、2018年にHair Salon Nicoをオープン。髪質改善のスペシャリスト。
+        </p>
+      </article>
+
+      <!-- Stylist 2 -->
+      <article class="reveal text-center">
+        <img src="images/staff2.jpg" alt="Stylist B" class="w-full max-w-xs mx-auto aspect-[4/5] object-cover rounded-sm shadow-md mb-6" />
+        <p class="text-xs tracking-[0.3em] text-brown mb-2">SENIOR STYLIST</p>
+        <h3 class="font-serif-jp text-2xl text-brown-900 mb-2">佐藤 結衣</h3>
+        <p class="text-sm text-brown-700 mb-4">Yui Sato</p>
+        <p class="text-sm text-brown-700 leading-loose text-left max-w-xs mx-auto">
+          大人世代向けのカラーリングが得意。透明感と肌なじみを大切にしたカラー設計に定評があります。
+        </p>
+      </article>
+
+      <!-- Stylist 3 -->
+      <article class="reveal text-center">
+        <img src="images/staff3.jpg" alt="Stylist C" class="w-full max-w-xs mx-auto aspect-[4/5] object-cover rounded-sm shadow-md mb-6" />
+        <p class="text-xs tracking-[0.3em] text-brown mb-2">STYLIST</p>
+        <h3 class="font-serif-jp text-2xl text-brown-900 mb-2">渡辺 花</h3>
+        <p class="text-sm text-brown-700 mb-4">Hana Watanabe</p>
+        <p class="text-sm text-brown-700 leading-loose text-left max-w-xs mx-auto">
+          髪質改善ストレートとダメージレスパーマを得意とする。骨格に合わせたカット技術にも定評。
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. CTA Image (lower) ========== -->
+<section class="cta-image-2 py-24 md:py-32 text-white text-center px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <p class="font-serif-jp tracking-[0.4em] text-sm md:text-base mb-5 opacity-90">— Reservation —</p>
+    <h2 class="font-serif-jp text-3xl md:text-5xl leading-snug mb-6">
+      自分史上、最高の髪へ。
+    </h2>
+    <p class="text-sm md:text-base leading-loose mb-10 opacity-95">
+      ご予約・空き状況のご確認は、24時間オンラインで承ります。
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="#booking" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-brown-900 hover:bg-beige-100 transition shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>
+        <span class="font-serif-jp tracking-widest">オンライン予約</span>
+      </a>
+      <a href="tel:0312345678" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-white/80 text-white hover:bg-white/10 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>03-1234-5678</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 9. アクセス ========== -->
+<section id="access" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-14 reveal">
+      <p class="text-brown text-xs md:text-sm tracking-[0.3em] mb-3">ACCESS</p>
+      <h2 class="font-serif-jp text-3xl md:text-4xl text-brown-900 heading-mark">
+        店舗情報・アクセス
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
+      <!-- Info -->
+      <div class="reveal">
+        <dl class="divide-y divide-beige-200 border-y border-beige-200">
+          <div class="grid grid-cols-[100px_1fr] md:grid-cols-[120px_1fr] gap-4 py-5">
+            <dt class="text-xs tracking-widest text-brown pt-1">店名</dt>
+            <dd class="text-brown-900 font-serif-jp text-lg">Hair Salon Nico</dd>
+          </div>
+          <div class="grid grid-cols-[100px_1fr] md:grid-cols-[120px_1fr] gap-4 py-5">
+            <dt class="text-xs tracking-widest text-brown pt-1">住所</dt>
+            <dd class="text-sm text-brown-900 leading-relaxed">
+              〒151-0072<br/>
+              東京都渋谷区幡ヶ谷1-2-3<br/>
+              ニコビル 2F
+            </dd>
+          </div>
+          <div class="grid grid-cols-[100px_1fr] md:grid-cols-[120px_1fr] gap-4 py-5">
+            <dt class="text-xs tracking-widest text-brown pt-1">アクセス</dt>
+            <dd class="text-sm text-brown-900 leading-relaxed">
+              京王新線 幡ヶ谷駅 北口より徒歩3分
+            </dd>
+          </div>
+          <div class="grid grid-cols-[100px_1fr] md:grid-cols-[120px_1fr] gap-4 py-5">
+            <dt class="text-xs tracking-widest text-brown pt-1">電話番号</dt>
+            <dd class="text-sm text-brown-900">
+              <a href="tel:0312345678" class="hover:text-brown transition">03-1234-5678</a>
+            </dd>
+          </div>
+          <div class="grid grid-cols-[100px_1fr] md:grid-cols-[120px_1fr] gap-4 py-5">
+            <dt class="text-xs tracking-widest text-brown pt-1">営業時間</dt>
+            <dd class="text-sm text-brown-900 leading-relaxed">
+              平日 10:00 - 20:00<br/>
+              土日祝 9:00 - 19:00<br/>
+              <span class="text-xs text-brown-700">※最終受付は閉店2時間前</span>
+            </dd>
+          </div>
+          <div class="grid grid-cols-[100px_1fr] md:grid-cols-[120px_1fr] gap-4 py-5">
+            <dt class="text-xs tracking-widest text-brown pt-1">定休日</dt>
+            <dd class="text-sm text-brown-900">毎週火曜日・第3水曜日</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Map -->
+      <div class="reveal">
+        <div class="aspect-[4/3] w-full rounded-sm overflow-hidden shadow-md border border-beige-200">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=139.6720%2C35.6760%2C139.6790%2C35.6800&amp;layer=mapnik&amp;marker=35.678%2C139.6755"
+            class="w-full h-full"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Hair Salon Nico 地図">
+          </iframe>
+        </div>
+        <p class="mt-3 text-xs text-brown-700 text-right">
+          <a href="https://www.openstreetmap.org/?mlat=35.678&amp;mlon=139.6755#map=17/35.678/139.6755" target="_blank" rel="noopener" class="hover:text-brown underline-offset-2 hover:underline">大きな地図で見る →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 10. 予約 (Calendly) ========== -->
+<section id="booking" class="py-20 md:py-28 bg-beige-100">
+  <div class="max-w-4xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-10 reveal">
+      <p class="text-brown text-xs md:text-sm tracking-[0.3em] mb-3">RESERVATION</p>
+      <h2 class="font-serif-jp text-3xl md:text-4xl text-brown-900 heading-mark">
+        ご予約はこちら
+      </h2>
+      <p class="mt-6 text-sm md:text-base text-brown-700 leading-loose">
+        24時間いつでもオンラインで予約できます。<br/>
+        ご希望の日時を選んで、お気軽にお申し込みください。
+      </p>
+    </div>
+
+    <!-- Calendly inline widget -->
+    <div class="reveal bg-white p-3 md:p-5 rounded-sm shadow-sm border border-beige-200 mb-8">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/example/30min" style="min-width:320px;height:400px;"></div>
+      <!-- Fallback shown if Calendly fails to load (covered by widget when loaded) -->
+      <noscript>
+        <div class="calendly-placeholder rounded-sm h-[400px] flex flex-col items-center justify-center text-center px-6 py-10">
+          <p class="font-serif-jp text-brown-900 text-lg mb-3">オンライン予約をご利用いただくには<br/>JavaScriptを有効にしてください。</p>
+          <p class="text-sm text-brown-700">下のボタンよりお電話・LINEでもご予約いただけます。</p>
+        </div>
+      </noscript>
+    </div>
+
+    <p class="text-center text-xs md:text-sm text-brown-700 mb-6">
+      ※ オンライン予約がご利用いただけない場合は、下記よりご連絡ください。
+    </p>
+
+    <!-- Fallback CTAs -->
+    <div class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto reveal">
+      <a href="tel:0312345678" class="flex-1 inline-flex items-center justify-center gap-3 px-6 py-4 rounded-full bg-brown text-white hover:bg-brown-700 transition shadow">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>
+          <span class="block text-[10px] tracking-widest opacity-80">PHONE</span>
+          <span class="block">お電話で予約</span>
+        </span>
+      </a>
+      <a href="https://line.me/" target="_blank" rel="noopener" class="flex-1 inline-flex items-center justify-center gap-3 px-6 py-4 rounded-full bg-olive text-white hover:bg-olive-600 transition shadow">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        <span>
+          <span class="block text-[10px] tracking-widest opacity-80">LINE</span>
+          <span class="block">LINEで予約</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="bg-brown-900 text-beige-100 py-12 md:py-16">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <p class="font-serif-jp text-2xl tracking-widest mb-3">
+          Hair Salon <span class="text-olive">Nico</span>
+        </p>
+        <p class="text-xs leading-loose opacity-80">
+          東京都渋谷区幡ヶ谷の<br/>
+          完全予約制プライベートサロン。<br/>
+          髪質改善トリートメント専門。
+        </p>
+      </div>
+      <div>
+        <p class="text-xs tracking-widest mb-3 text-olive">CONTACT</p>
+        <p class="text-sm mb-1">03-1234-5678</p>
+        <p class="text-xs opacity-80">平日 10:00 - 20:00 / 土日祝 9:00 - 19:00</p>
+        <p class="text-xs opacity-80">定休日：毎週火曜日・第3水曜日</p>
+      </div>
+      <div>
+        <p class="text-xs tracking-widest mb-3 text-olive">MENU</p>
+        <ul class="space-y-1.5 text-xs">
+          <li><a href="#worries" class="hover:text-olive transition">お悩み</a></li>
+          <li><a href="#reasons" class="hover:text-olive transition">選ばれる理由</a></li>
+          <li><a href="#menu" class="hover:text-olive transition">メニュー・料金</a></li>
+          <li><a href="#voice" class="hover:text-olive transition">お客様の声</a></li>
+          <li><a href="#stylist" class="hover:text-olive transition">スタイリスト</a></li>
+          <li><a href="#access" class="hover:text-olive transition">アクセス</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-white/10 text-[11px] opacity-70 text-center">
+      © 2025 Hair Salon Nico. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ========== Floating CTA ========== -->
+<div id="floatingCta" class="floating-cta is-hidden fixed bottom-0 inset-x-0 z-50 md:bottom-5 md:inset-x-auto md:right-5 md:max-w-xs">
+  <div class="bg-white/95 md:rounded-2xl shadow-2xl border-t md:border border-beige-200 px-3 py-3 md:p-4">
+    <p class="hidden md:block text-[11px] tracking-widest text-brown mb-2">RESERVE NOW</p>
+    <div class="grid grid-cols-3 md:grid-cols-1 gap-2">
+      <a href="tel:0312345678" class="inline-flex items-center justify-center gap-2 px-3 py-3 rounded-full bg-brown text-white text-xs md:text-sm hover:bg-brown-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="hidden sm:inline">電話</span>
+      </a>
+      <a href="https://line.me/" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-3 py-3 rounded-full bg-olive text-white text-xs md:text-sm hover:bg-olive-600 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M24 10.3C24 4.9 18.6.6 12 .6S0 4.9 0 10.3c0 4.8 4.3 8.8 10 9.6.4.1.9.3 1.1.6.1.3.1.8 0 1.1l-.2 1c0 .3-.2 1.2 1 .6 1.3-.5 6.9-4.1 9.4-7C23.2 14.4 24 12.5 24 10.3"/></svg>
+        <span class="hidden sm:inline">LINE</span>
+      </a>
+      <a href="#booking" class="inline-flex items-center justify-center gap-2 px-3 py-3 rounded-full bg-beige-200 text-brown-900 text-xs md:text-sm hover:bg-beige-100 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>
+        <span class="hidden sm:inline">予約</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== Calendly Script ========== -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<!-- ========== Local JS ========== -->
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Floating CTA visibility — hide while in hero, show after
+  const hero = document.getElementById('hero');
+  const floating = document.getElementById('floatingCta');
+  const heroIo = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        floating.classList.add('is-hidden');
+      } else {
+        floating.classList.remove('is-hidden');
+      }
+    });
+  }, { threshold: 0.4 });
+  heroIo.observe(hero);
+
+  // Hide floating CTA when booking section is visible (avoid covering Calendly)
+  const booking = document.getElementById('booking');
+  const bookingIo = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        floating.classList.add('is-hidden');
+      }
+    });
+  }, { threshold: 0.2 });
+  bookingIo.observe(booking);
+</script>
+
+</body>
+</html>

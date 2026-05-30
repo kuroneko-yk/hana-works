@@ -1,0 +1,1394 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>交通事故・むちうち専門 | 笹井整骨院 | 神戸市中央区</title>
+<meta name="description" content="神戸市中央区の交通事故・むちうち専門整骨院。自賠責保険適用で自己負担0円。土日祝も対応、夜20時まで。無料相談受付中。" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50:  '#f1f9f5',
+            100: '#dcefe3',
+            200: '#bbdfca',
+            300: '#8ec8a8',
+            400: '#5aaa84',
+            500: '#2d8a6e',
+            600: '#206d58',
+            700: '#1a5747',
+            800: '#16463a',
+            900: '#123a30',
+          },
+          ink: {
+            900: '#0d1f1a',
+            800: '#1f3530',
+            700: '#3a4a45',
+            500: '#6b7a75',
+            400: '#94a09c',
+          },
+          paper: '#fbfaf6',
+          cream: '#f4efe5',
+          alert: '#c0492b',
+        },
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+          serif: ['"Noto Serif JP"', 'serif'],
+          en: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: #0d1f1a; -webkit-font-smoothing: antialiased; max-width: 100%; overflow-x: hidden; }
+  .serif { font-family: 'Noto Serif JP', serif; }
+  .en { font-family: 'Inter', sans-serif; letter-spacing: 0.04em; }
+
+  /* Vertical accent line */
+  .hgroup { position: relative; padding-left: 1.25rem; }
+  .hgroup::before { content: ""; position: absolute; left: 0; top: .35em; bottom: .35em; width: 4px; background: #2d8a6e; border-radius: 4px; }
+
+  /* Section eyebrow */
+  .eyebrow { display:inline-flex; align-items:center; gap:.6rem; color:#2d8a6e; font-weight:700; letter-spacing:.18em; font-size:.78rem; }
+  .eyebrow::before { content:""; width:28px; height:1px; background:#2d8a6e; }
+
+  /* Checklist */
+  .check li { position: relative; padding-left: 2.4rem; }
+  .check li::before {
+    content:""; position:absolute; left:0; top:.2em; width:1.6rem; height:1.6rem; border-radius:9999px;
+    background:#2d8a6e url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 12 10 18 20 6'/></svg>") center/60% no-repeat;
+  }
+
+  /* Diagonal banner stripes */
+  .stripe-bg { background-image: linear-gradient(135deg, #1a5747 0 50%, #206d58 50% 100%); }
+
+  /* Subtle paper texture */
+  .paper-tex {
+    background-color:#fbfaf6;
+    background-image:
+      radial-gradient(rgba(45,138,110,.05) 1px, transparent 1px),
+      radial-gradient(rgba(45,138,110,.04) 1px, transparent 1px);
+    background-size: 22px 22px, 11px 11px;
+    background-position: 0 0, 11px 11px;
+  }
+
+  /* CTA pulse */
+  @keyframes softPulse { 0%,100%{ box-shadow:0 0 0 0 rgba(45,138,110,.45);} 50%{ box-shadow:0 0 0 14px rgba(45,138,110,0);} }
+  .pulse-ring { animation: softPulse 2.4s ease-out infinite; }
+
+  /* Section number watermark */
+  .section-num { font-family:'Inter',sans-serif; font-weight:800; color:#dcefe3; font-size:9rem; line-height:.8; letter-spacing:-.04em; }
+  @media (max-width: 768px){ .section-num { font-size:5rem; } }
+
+  /* Step connector */
+  .step-row { position: relative; }
+  .step-row::before {
+    content:""; position:absolute; left:2.25rem; top:4.5rem; bottom:-1.5rem; width:2px;
+    background: repeating-linear-gradient(to bottom, #bbdfca 0 6px, transparent 6px 12px);
+  }
+  @media (max-width: 639px) {
+    .step-row::before { left: 1.5rem; top: 3.5rem; }
+  }
+  .step-row:last-child::before { display:none; }
+
+  /* Accordion */
+  details summary { list-style:none; cursor:pointer; }
+  details summary::-webkit-details-marker { display:none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform .25s ease; }
+
+  /* Marquee */
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { animation: marquee 28s linear infinite; }
+
+  /* Focus ring for buttons */
+  .btn-focus:focus-visible { outline:3px solid #8ec8a8; outline-offset:3px; }
+
+  /* Hide floating bar on print */
+  @media print { .floating-cta { display:none !important; } }
+</style>
+</head>
+<body class="bg-white">
+
+<!-- ============ HEADER ============ -->
+<header class="fixed top-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-b border-ink-900/5">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 h-16 lg:h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3">
+      <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-brand-500 grid place-items-center text-white serif font-bold text-xl">笹</div>
+      <div class="leading-tight">
+        <div class="text-[10px] tracking-[0.25em] text-brand-600 font-semibold">KOBE · CHUO</div>
+        <div class="serif font-bold text-lg lg:text-xl">笹井整骨院</div>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium">
+      <a href="#symptoms" class="hover:text-brand-600">症状</a>
+      <a href="#reasons" class="hover:text-brand-600">選ばれる理由</a>
+      <a href="#flow" class="hover:text-brand-600">施術の流れ</a>
+      <a href="#price" class="hover:text-brand-600">料金</a>
+      <a href="#voice" class="hover:text-brand-600">患者様の声</a>
+      <a href="#faq" class="hover:text-brand-600">よくある質問</a>
+      <a href="#access" class="hover:text-brand-600">アクセス</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="tel:0780000000" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-ink-900">
+        <svg class="w-4 h-4 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.88.7 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.11-.45c.9.34 1.83.57 2.78.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="en">078-000-0000</span>
+      </a>
+      <a href="#reserve" class="btn-focus inline-flex items-center gap-1.5 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold px-4 py-2.5 rounded-full transition">
+        無料相談
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative pt-16 lg:pt-20 bg-paper overflow-hidden">
+  <!-- decorative blobs -->
+  <div aria-hidden="true" class="hidden sm:block absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full bg-brand-100/60 blur-3xl"></div>
+  <div aria-hidden="true" class="hidden sm:block absolute -bottom-32 -left-24 w-[420px] h-[420px] rounded-full bg-brand-50 blur-3xl"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 pt-10 lg:pt-16 pb-16 lg:pb-24 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+    <!-- copy -->
+    <div class="lg:col-span-7 relative z-10">
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="inline-flex items-center gap-1.5 bg-alert/10 text-alert text-xs font-bold px-3 py-1.5 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-alert animate-pulse"></span>交通事故・むちうち専門
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-white border border-brand-200 text-brand-700 text-xs font-bold px-3 py-1.5 rounded-full">自賠責保険適用 自己負担 ¥0</span>
+        <span class="inline-flex items-center gap-1.5 bg-white border border-brand-200 text-brand-700 text-xs font-bold px-3 py-1.5 rounded-full">国家資格者在籍</span>
+      </div>
+
+      <h1 class="serif font-black text-3xl sm:text-4xl lg:text-[3.1rem] xl:text-[3.4rem] leading-[1.25] sm:leading-[1.5] lg:leading-[1.55] tracking-tight">
+        <span class="block">交通事故の<span class="relative inline-block"><span class="relative z-10 text-brand-600">つらい痛み、</span><span aria-hidden="true" class="absolute left-0 right-0 bottom-1 h-3 bg-brand-100 -z-0"></span></span></span>
+        <span class="block">我慢していませんか？</span>
+      </h1>
+      <p class="mt-8 lg:mt-10 text-base lg:text-lg text-ink-700 leading-relaxed max-w-xl">
+        むちうち・首の痛み・頭痛・しびれ──事故後の不調は <strong class="text-ink-900">放置すると慢性化</strong> します。
+        神戸市中央区の笹井整骨院では、国家資格者が一人ひとりに合わせた施術で、根本改善まで丁寧にサポートします。
+      </p>
+
+      <!-- key stats -->
+      <dl class="mt-8 grid grid-cols-3 gap-3 sm:gap-6 max-w-xl">
+        <div class="bg-white rounded-2xl border border-brand-100 px-3 sm:px-5 py-4">
+          <dt class="text-[11px] sm:text-xs text-ink-500 font-semibold">自己負担</dt>
+          <dd class="serif font-black text-2xl sm:text-3xl text-brand-600 leading-none mt-1">¥0<span class="text-xs sm:text-sm ml-0.5">〜</span></dd>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-100 px-3 sm:px-5 py-4">
+          <dt class="text-[11px] sm:text-xs text-ink-500 font-semibold">対応実績</dt>
+          <dd class="serif font-black text-2xl sm:text-3xl text-brand-600 leading-none mt-1">3,200<span class="text-xs sm:text-sm ml-0.5">件</span></dd>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-100 px-3 sm:px-5 py-4">
+          <dt class="text-[11px] sm:text-xs text-ink-500 font-semibold">夜間</dt>
+          <dd class="serif font-black text-2xl sm:text-3xl text-brand-600 leading-none mt-1">20<span class="text-xs sm:text-sm ml-0.5">時まで</span></dd>
+        </div>
+      </dl>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl">
+        <a href="#reserve" class="btn-focus pulse-ring group flex-1 inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-6 rounded-full text-base transition shadow-lg shadow-brand-500/20">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          24時間 WEB予約・無料相談
+        </a>
+        <a href="tel:0780000000" class="btn-focus flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-brand-50 border-2 border-brand-500 text-brand-700 font-bold py-4 px-6 rounded-full text-base transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.88.7 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.11-.45c.9.34 1.83.57 2.78.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="en text-lg">078-000-0000</span>
+        </a>
+      </div>
+      <p class="mt-3 text-xs text-ink-500">受付時間 9:00–20:00／土日祝も診療／三宮駅 徒歩5分</p>
+    </div>
+
+    <!-- image -->
+    <div class="lg:col-span-5 relative">
+      <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl shadow-brand-900/10 ring-1 ring-brand-900/5">
+        <img src="images/hero_sasai.jpg" alt="笹井整骨院 施術風景" class="w-full h-full object-cover" />
+        <!-- floating badge -->
+        <div class="absolute top-5 left-5 bg-white/95 backdrop-blur rounded-2xl px-4 py-3 shadow-lg">
+          <div class="text-[10px] text-ink-500 font-semibold tracking-widest">SINCE 2008</div>
+          <div class="serif font-bold text-lg text-ink-900">地域に根差して 17 年</div>
+        </div>
+      </div>
+      <!-- review chip -->
+      <div class="absolute -bottom-5 -left-3 lg:-left-8 bg-white rounded-2xl shadow-xl px-5 py-4 border border-brand-100 max-w-[260px]">
+        <div class="flex items-center gap-1 text-brand-500">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <span class="text-xs font-bold text-ink-900 ml-1">4.9</span>
+        </div>
+        <div class="text-xs text-ink-700 mt-1 leading-snug">「事故後の頭痛が嘘のように」<br/><span class="text-ink-500">— 30代女性</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- trust marquee -->
+  <div class="relative border-t border-brand-900/5 bg-white">
+    <div class="overflow-hidden">
+      <div class="marquee-track flex gap-12 py-4 whitespace-nowrap text-sm font-semibold text-ink-700">
+        <span>✓ 自賠責保険対応</span><span>✓ 弁護士紹介可</span><span>✓ 転院相談OK</span><span>✓ 当日予約可</span><span>✓ 駐車場あり</span><span>✓ キッズスペース完備</span><span>✓ 国家資格者在籍</span>
+        <span>✓ 自賠責保険対応</span><span>✓ 弁護士紹介可</span><span>✓ 転院相談OK</span><span>✓ 当日予約可</span><span>✓ 駐車場あり</span><span>✓ キッズスペース完備</span><span>✓ 国家資格者在籍</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 SYMPTOMS ============ -->
+<section id="symptoms" class="relative py-20 lg:py-28 paper-tex">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <span class="eyebrow en">YOUR SYMPTOMS</span>
+        <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">
+          こんな症状でお悩みの方へ
+        </h2>
+        <p class="mt-4 text-ink-700 max-w-2xl">一つでも当てはまる方は、お早めにご相談ください。事故後の不調は<strong class="text-alert">時間が経つほど慢性化</strong>します。</p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <!-- left: checklist -->
+      <div class="lg:col-span-7">
+        <ul class="check space-y-4 text-base lg:text-lg">
+          <li class="bg-white rounded-2xl border border-brand-100 px-5 py-5 shadow-sm">
+            <div class="font-bold text-ink-900">首が回らない・むちうちの症状がある</div>
+            <p class="text-sm text-ink-500 mt-1">事故直後は痛みを感じにくく、数日後に悪化するケースが多発</p>
+          </li>
+          <li class="bg-white rounded-2xl border border-brand-100 px-5 py-5 shadow-sm">
+            <div class="font-bold text-ink-900">頭痛・めまい・吐き気が続く</div>
+            <p class="text-sm text-ink-500 mt-1">自律神経の乱れが原因のことも。早期の施術が重要です</p>
+          </li>
+          <li class="bg-white rounded-2xl border border-brand-100 px-5 py-5 shadow-sm">
+            <div class="font-bold text-ink-900">手足のしびれ・違和感がある</div>
+            <p class="text-sm text-ink-500 mt-1">神経への影響が疑われます。放置せず専門家へ</p>
+          </li>
+          <li class="bg-white rounded-2xl border border-brand-100 px-5 py-5 shadow-sm">
+            <div class="font-bold text-ink-900">病院でレントゲンは「異常なし」だが痛む</div>
+            <p class="text-sm text-ink-500 mt-1">骨に異常がなくても筋肉・靭帯損傷の可能性</p>
+          </li>
+          <li class="bg-white rounded-2xl border border-brand-100 px-5 py-5 shadow-sm">
+            <div class="font-bold text-ink-900">保険会社とのやり取りに不安がある</div>
+            <p class="text-sm text-ink-500 mt-1">手続き・転院・慰謝料についても丁寧にサポート</p>
+          </li>
+          <li class="bg-white rounded-2xl border border-brand-100 px-5 py-5 shadow-sm">
+            <div class="font-bold text-ink-900">仕事や家事に集中できないほどつらい</div>
+            <p class="text-sm text-ink-500 mt-1">夜間・土日祝も対応。通いやすさにこだわります</p>
+          </li>
+        </ul>
+
+        <div class="mt-8 rounded-2xl bg-brand-700 text-white p-4 sm:p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
+          <div class="shrink-0 w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-white/15 grid place-items-center">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="flex-1">
+            <div class="font-bold text-lg leading-snug">事故後の不調を「年齢のせい」「気のせい」で済ませないでください。</div>
+            <div class="text-brand-100 text-sm mt-1">後遺症を残さないために、早期の専門ケアをおすすめします。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right: image -->
+      <div class="lg:col-span-5 lg:sticky lg:top-28">
+        <div class="relative">
+          <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl">
+            <img src="images/onayami_sasai.jpg" alt="事故後の不調に悩む患者様" class="w-full h-full object-cover" />
+          </div>
+          <div class="absolute -top-4 right-0 sm:-right-4 bg-alert text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 grid place-items-center text-center shadow-lg rotate-[8deg]">
+            <div>
+              <div class="text-[10px] tracking-wider">RISK</div>
+              <div class="serif font-bold text-sm leading-tight mt-1">放置で<br/>慢性化</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 REASONS ============ -->
+<section id="reasons" class="relative py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="eyebrow en">WHY US</span>
+      <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">当院が選ばれる<span class="text-brand-600">5つの理由</span></h2>
+      <p class="mt-4 text-ink-700">数ある整骨院の中から、神戸の事故後ケア専門院として選ばれ続ける理由をご紹介します。</p>
+    </div>
+
+    <div class="space-y-16 lg:space-y-24">
+      <!-- Reason 1 -->
+      <div>
+        <div class="bg-brand-500 text-white rounded-xl px-3 py-2 sm:px-5 sm:py-3 flex flex-wrap items-center gap-2 sm:gap-4 mb-6">
+          <span class="en font-bold text-xs tracking-[0.3em] opacity-80">REASON</span>
+          <span class="en font-black text-2xl sm:text-3xl">01</span>
+          <span class="font-bold text-sm sm:text-base lg:text-lg">交通事故・むちうち専門の高い専門性</span>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-5">
+            <img src="images/reason1_sasai.jpg" alt="笹井整骨院 専門施術の様子" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
+          </div>
+          <div class="lg:col-span-7">
+            <h3 class="serif font-black text-2xl lg:text-3xl leading-snug">事故対応 3,200件以上の<br/>経験に裏打ちされた施術</h3>
+            <p class="mt-5 text-ink-700 leading-relaxed">むちうちは見た目で分からない損傷が起きやすく、専門知識がないと適切な施術ができません。当院は開院以来17年間、交通事故後の症状に特化してきた経験があります。レントゲンに写らない筋・靭帯・自律神経のダメージまで丁寧に評価します。</p>
+            <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
+              <li class="flex items-start gap-2"><span class="mt-1 w-4 h-4 rounded-full bg-brand-100 text-brand-700 grid place-items-center font-bold">✓</span>初診時に詳細な問診と検査</li>
+              <li class="flex items-start gap-2"><span class="mt-1 w-4 h-4 rounded-full bg-brand-100 text-brand-700 grid place-items-center font-bold">✓</span>後遺症リスクを早期に発見</li>
+              <li class="flex items-start gap-2"><span class="mt-1 w-4 h-4 rounded-full bg-brand-100 text-brand-700 grid place-items-center font-bold">✓</span>症状に合わせたオーダーメイド施術</li>
+              <li class="flex items-start gap-2"><span class="mt-1 w-4 h-4 rounded-full bg-brand-100 text-brand-700 grid place-items-center font-bold">✓</span>整形外科との併院も可能</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reason 2 (reverse) -->
+      <div>
+        <div class="bg-brand-500 text-white rounded-xl px-3 py-2 sm:px-5 sm:py-3 flex flex-wrap items-center gap-2 sm:gap-4 mb-6">
+          <span class="en font-bold text-xs tracking-[0.3em] opacity-80">REASON</span>
+          <span class="en font-black text-2xl sm:text-3xl">02</span>
+          <span class="font-bold text-sm sm:text-base lg:text-lg">自賠責保険対応で自己負担0円</span>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-7 lg:order-2">
+            <h3 class="serif font-black text-2xl lg:text-3xl leading-snug">窓口負担<span class="text-brand-600">¥0</span>で<br/>納得いくまで通院できます</h3>
+            <p class="mt-5 text-ink-700 leading-relaxed">交通事故によるケガの施術費は、自賠責保険が適用され患者様の自己負担は原則0円です。慰謝料(1日4,300円)も別途請求が可能。複雑な手続きも、当院スタッフがすべてサポートします。</p>
+            <div class="mt-6 grid grid-cols-2 gap-3">
+              <div class="bg-paper rounded-xl p-4">
+                <div class="text-xs text-ink-500 font-semibold">通院 1 日あたり</div>
+                <div class="serif font-black text-2xl text-brand-600 mt-1">¥4,300<span class="text-xs ml-1 text-ink-700">慰謝料</span></div>
+              </div>
+              <div class="bg-paper rounded-xl p-4">
+                <div class="text-xs text-ink-500 font-semibold">施術費の負担</div>
+                <div class="serif font-black text-2xl text-brand-600 mt-1">¥0<span class="text-xs ml-1 text-ink-700">/回</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 lg:order-1">
+            <img src="images/reason2_sasai.jpg" alt="自賠責保険手続きの説明を受ける患者様" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Reason 3 -->
+      <div>
+        <div class="bg-brand-500 text-white rounded-xl px-3 py-2 sm:px-5 sm:py-3 flex flex-wrap items-center gap-2 sm:gap-4 mb-6">
+          <span class="en font-bold text-xs tracking-[0.3em] opacity-80">REASON</span>
+          <span class="en font-black text-2xl sm:text-3xl">03</span>
+          <span class="font-bold text-sm sm:text-base lg:text-lg">国家資格者によるオーダーメイド施術</span>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-5">
+            <img src="images/reason3_sasai.jpg" alt="オーダーメイド施術の手元" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
+          </div>
+          <div class="lg:col-span-7">
+            <h3 class="serif font-black text-2xl lg:text-3xl leading-snug">柔道整復師が一人ひとりに<br/>合わせた施術プランを設計</h3>
+            <p class="mt-5 text-ink-700 leading-relaxed">在籍するスタッフは全員、厚生労働省認定の柔道整復師。年齢・体格・お仕事の内容まで考慮し、手技を中心にした優しい施術で根本改善へ導きます。痛みの強い方には電気・温熱療法も併用します。</p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1.5 rounded-full">柔道整復師</span>
+              <span class="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1.5 rounded-full">JCCA認定トレーナー</span>
+              <span class="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1.5 rounded-full">骨盤矯正</span>
+              <span class="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1.5 rounded-full">姿勢分析</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reason 4 (reverse) -->
+      <div>
+        <div class="bg-brand-500 text-white rounded-xl px-3 py-2 sm:px-5 sm:py-3 flex flex-wrap items-center gap-2 sm:gap-4 mb-6">
+          <span class="en font-bold text-xs tracking-[0.3em] opacity-80">REASON</span>
+          <span class="en font-black text-2xl sm:text-3xl">04</span>
+          <span class="font-bold text-sm sm:text-base lg:text-lg">夜20時まで・土日祝も対応</span>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-7 lg:order-2">
+            <h3 class="serif font-black text-2xl lg:text-3xl leading-snug">仕事帰り・お休みの日も<br/>通いやすい診療体制</h3>
+            <p class="mt-5 text-ink-700 leading-relaxed">事故後は継続した通院が重要ですが、忙しい毎日では難しいもの。当院は平日 夜20時まで、土日祝も診療しています。三宮駅から徒歩5分、提携駐車場も完備で、お車での来院も可能です。</p>
+            <div class="mt-6 bg-paper rounded-2xl p-5 grid grid-cols-3 gap-3 text-center">
+              <div><div class="text-xs text-ink-500">平日</div><div class="serif font-bold text-lg mt-1">9:00–20:00</div></div>
+              <div class="border-x border-brand-100"><div class="text-xs text-ink-500">土曜</div><div class="serif font-bold text-lg mt-1">9:00–18:00</div></div>
+              <div><div class="text-xs text-ink-500">日祝</div><div class="serif font-bold text-lg mt-1">10:00–17:00</div></div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 lg:order-1">
+            <img src="images/reason4_sasai.jpg" alt="夜間も営業する笹井整骨院の外観" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Reason 5 -->
+      <div>
+        <div class="bg-brand-500 text-white rounded-xl px-3 py-2 sm:px-5 sm:py-3 flex flex-wrap items-center gap-2 sm:gap-4 mb-6">
+          <span class="en font-bold text-xs tracking-[0.3em] opacity-80">REASON</span>
+          <span class="en font-black text-2xl sm:text-3xl">05</span>
+          <span class="font-bold text-sm sm:text-base lg:text-lg">保険会社・弁護士との連携サポート</span>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-5">
+            <img src="images/reason5_sasai.jpg" alt="保険会社・弁護士との連携相談の様子" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
+          </div>
+          <div class="lg:col-span-7">
+            <h3 class="serif font-black text-2xl lg:text-3xl leading-snug">めんどうな保険手続きも<br/>丸ごとサポートします</h3>
+            <p class="mt-5 text-ink-700 leading-relaxed">保険会社への連絡、転院手続き、慰謝料請求まで、当院が経験豊富なスタッフが代行・アドバイス。難しいケースには提携の交通事故専門弁護士をご紹介できます(無料相談)。</p>
+            <ul class="mt-6 space-y-2 text-sm text-ink-700">
+              <li class="flex gap-2"><span class="text-brand-600 font-bold">›</span> 保険会社への連絡代行</li>
+              <li class="flex gap-2"><span class="text-brand-600 font-bold">›</span> 他院・整形外科からの転院手続き</li>
+              <li class="flex gap-2"><span class="text-brand-600 font-bold">›</span> 後遺障害認定の相談</li>
+              <li class="flex gap-2"><span class="text-brand-600 font-bold">›</span> 提携弁護士の無料紹介</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER 1 ============ -->
+<section class="relative py-16 lg:py-20 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="images/cta1_sasai.jpg" alt="笹井整骨院 院内の落ち着いた雰囲気" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-800/85 to-brand-700/70"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 text-white">
+    <div class="grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8">
+        <span class="eyebrow en text-brand-200" style="--tw-text-opacity:1">FREE CONSULTATION</span>
+        <h3 class="serif font-black text-2xl lg:text-4xl mt-3 leading-tight lg:leading-snug lg:tracking-wide">事故後の不調は、すぐに対処することが<br>早期回復への近道。<br/>まずは無料でご相談ください。</h3>
+        <p class="mt-4 text-brand-100">LINE・お電話・WEBから24時間受付。当日のご予約も可能です。</p>
+      </div>
+      <div class="lg:col-span-4 flex flex-col gap-3">
+        <a href="tel:0780000000" class="btn-focus inline-flex items-center justify-center gap-3 bg-white text-brand-700 font-bold py-4 px-6 rounded-full text-base hover:bg-brand-50 transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.88.7 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.11-.45c.9.34 1.83.57 2.78.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="en text-lg">078-000-0000</span>
+        </a>
+        <a href="#reserve" class="btn-focus inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 border-2 border-white/30 text-white font-bold py-4 px-6 rounded-full text-base transition">
+          24時間 WEB予約
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 FLOW ============ -->
+<section id="flow" class="relative py-20 lg:py-28 bg-paper">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="eyebrow en">TREATMENT FLOW</span>
+      <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">施術の流れ</h2>
+      <p class="mt-4 text-ink-700">ご来院から施術完了まで、安心して通っていただける5ステップ。</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-6">
+      <!-- step 1 -->
+      <div class="step-row flex gap-3 sm:gap-6">
+        <div class="shrink-0">
+          <div class="w-12 h-12 sm:w-[4.5rem] sm:h-[4.5rem] rounded-2xl bg-brand-500 text-white grid place-items-center shadow-lg shadow-brand-500/20">
+            <div class="text-center">
+              <div class="en text-[10px] font-bold opacity-80 tracking-widest">STEP</div>
+              <div class="en font-black text-2xl leading-none">01</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0 bg-white rounded-2xl border border-brand-100 p-4 sm:p-6 shadow-sm">
+          <h3 class="serif font-bold text-xl">受付・お電話でご予約</h3>
+          <p class="mt-2 text-ink-700 text-sm leading-relaxed">お電話・WEB・LINEからご予約ください。事故の状況を簡単にお伺いし、保険会社への連絡が必要な場合はその場で説明いたします。</p>
+        </div>
+      </div>
+      <!-- step 2 -->
+      <div class="step-row flex gap-3 sm:gap-6">
+        <div class="shrink-0">
+          <div class="w-12 h-12 sm:w-[4.5rem] sm:h-[4.5rem] rounded-2xl bg-brand-500 text-white grid place-items-center shadow-lg shadow-brand-500/20">
+            <div class="text-center">
+              <div class="en text-[10px] font-bold opacity-80 tracking-widest">STEP</div>
+              <div class="en font-black text-2xl leading-none">02</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0 bg-white rounded-2xl border border-brand-100 p-4 sm:p-6 shadow-sm">
+          <h3 class="serif font-bold text-xl">問診・カウンセリング</h3>
+          <p class="mt-2 text-ink-700 text-sm leading-relaxed">事故の状況、現在の症状、お仕事や日常生活への影響まで、20分ほどかけて丁寧に伺います。保険手続きの不安もここでお気軽にご相談ください。</p>
+        </div>
+      </div>
+      <!-- step 3 -->
+      <div class="step-row flex gap-3 sm:gap-6">
+        <div class="shrink-0">
+          <div class="w-12 h-12 sm:w-[4.5rem] sm:h-[4.5rem] rounded-2xl bg-brand-500 text-white grid place-items-center shadow-lg shadow-brand-500/20">
+            <div class="text-center">
+              <div class="en text-[10px] font-bold opacity-80 tracking-widest">STEP</div>
+              <div class="en font-black text-2xl leading-none">03</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0 bg-white rounded-2xl border border-brand-100 p-4 sm:p-6 shadow-sm">
+          <h3 class="serif font-bold text-xl">姿勢・可動域の検査</h3>
+          <p class="mt-2 text-ink-700 text-sm leading-relaxed">国家資格者が姿勢分析・関節可動域・筋緊張をチェック。レントゲンでは見えない筋肉・靭帯のダメージまで確認します。</p>
+        </div>
+      </div>
+      <!-- step 4 -->
+      <div class="step-row flex gap-3 sm:gap-6">
+        <div class="shrink-0">
+          <div class="w-12 h-12 sm:w-[4.5rem] sm:h-[4.5rem] rounded-2xl bg-brand-500 text-white grid place-items-center shadow-lg shadow-brand-500/20">
+            <div class="text-center">
+              <div class="en text-[10px] font-bold opacity-80 tracking-widest">STEP</div>
+              <div class="en font-black text-2xl leading-none">04</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0 bg-white rounded-2xl border border-brand-100 p-4 sm:p-6 shadow-sm">
+          <h3 class="serif font-bold text-xl">施術プランのご説明と施術</h3>
+          <p class="mt-2 text-ink-700 text-sm leading-relaxed">検査結果をもとに、お一人おひとりに最適な施術プランをご提案。納得いただいた上で、手技・電気療法・温熱療法を組み合わせた施術を行います。</p>
+        </div>
+      </div>
+      <!-- step 5 -->
+      <div class="step-row flex gap-3 sm:gap-6">
+        <div class="shrink-0">
+          <div class="w-12 h-12 sm:w-[4.5rem] sm:h-[4.5rem] rounded-2xl bg-brand-600 text-white grid place-items-center shadow-lg shadow-brand-500/30 ring-4 ring-brand-100">
+            <div class="text-center">
+              <div class="en text-[10px] font-bold opacity-80 tracking-widest">STEP</div>
+              <div class="en font-black text-2xl leading-none">05</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 min-w-0 bg-white rounded-2xl border border-brand-100 p-4 sm:p-6 shadow-sm">
+          <h3 class="serif font-bold text-xl">アフターケア・次回予約</h3>
+          <p class="mt-2 text-ink-700 text-sm leading-relaxed">ご自宅でのセルフケア指導・通院ペースのアドバイスをお伝えします。継続通院で根本改善を目指しましょう。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 CLINIC GALLERY ============ -->
+<section class="relative py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <span class="eyebrow en">OUR CLINIC</span>
+        <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">院内の雰囲気</h2>
+        <p class="mt-4 text-ink-700 max-w-2xl">明るく清潔な院内で、リラックスして施術を受けていただけます。</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-3 lg:gap-5">
+      <figure class="col-span-12 lg:col-span-7 row-span-2">
+        <img src="images/clinic1.jpg" alt="待合スペース" class="w-full aspect-square object-cover rounded-2xl" />
+        <figcaption class="mt-2 text-sm text-ink-500">広々とした待合スペース</figcaption>
+      </figure>
+      <figure class="col-span-6 lg:col-span-5">
+        <img src="images/clinic2.jpg" alt="施術ベッド" class="w-full aspect-[3/2] object-cover rounded-2xl" />
+        <figcaption class="mt-2 text-sm text-ink-500">プライバシーに配慮した施術ベッド</figcaption>
+      </figure>
+      <figure class="col-span-6 lg:col-span-5">
+        <img src="images/clinic3.jpg" alt="受付カウンター" class="w-full aspect-[3/2] object-cover rounded-2xl" />
+        <figcaption class="mt-2 text-sm text-ink-500">明るく落ち着いた受付</figcaption>
+      </figure>
+      <figure class="col-span-6 lg:col-span-4">
+        <img src="images/clinic4.jpg" alt="キッズスペース" class="w-full aspect-[5/4] object-cover rounded-2xl" />
+        <figcaption class="mt-2 text-sm text-ink-500">キッズスペース完備</figcaption>
+      </figure>
+      <figure class="col-span-6 lg:col-span-4">
+        <img src="images/clinic5j.jpg" alt="施術機器" class="w-full aspect-[5/4] object-cover rounded-2xl" />
+        <figcaption class="mt-2 text-sm text-ink-500">最新の電気・温熱療法機器</figcaption>
+      </figure>
+      <figure class="col-span-12 lg:col-span-4">
+        <img src="images/clinic6.jpg" alt="笹井整骨院 外観" class="w-full aspect-[5/4] object-cover rounded-2xl" />
+        <figcaption class="mt-2 text-sm text-ink-500">三宮駅から徒歩5分の外観</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER 2 ============ -->
+<section class="relative py-16 lg:py-20 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="images/cta2_sasai.jpg" alt="笹井整骨院 施術手元のクローズアップ" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-l from-brand-900/95 via-brand-800/85 to-brand-700/70"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 text-white text-center lg:text-left">
+    <div class="grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8">
+        <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur rounded-full px-4 py-1.5 mb-4 text-xs font-bold tracking-wider">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-200 animate-pulse"></span>
+          自賠責保険適用で自己負担 <span class="en">¥0</span>
+        </div>
+        <h3 class="serif font-black text-2xl lg:text-4xl leading-tight">他院からの転院も<br class="lg:hidden"/>お気軽にご相談ください。</h3>
+        <p class="mt-4 text-brand-100 max-w-2xl">「今通っている整骨院で改善しない」「もっと専門的に診てもらいたい」── 転院手続きは当院がすべてサポートします。</p>
+      </div>
+      <div class="lg:col-span-4 flex flex-col gap-3">
+        <a href="#reserve" class="btn-focus inline-flex items-center justify-center gap-2 bg-white text-brand-700 font-bold py-4 px-6 rounded-full text-base hover:bg-brand-50 transition shadow-lg">
+          無料で相談してみる
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 PRICE ============ -->
+<section id="price" class="relative py-20 lg:py-28 paper-tex">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="eyebrow en">PRICE</span>
+      <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">料金案内</h2>
+    </div>
+
+    <!-- highlight card -->
+    <div class="relative rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 text-white p-5 sm:p-8 lg:p-12 overflow-hidden shadow-xl">
+      <div aria-hidden="true" class="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-white/10"></div>
+      <div aria-hidden="true" class="absolute -bottom-16 -left-10 w-72 h-72 rounded-full bg-white/5"></div>
+      <div class="relative grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur rounded-full px-3 py-1.5 text-xs font-bold tracking-wider">
+            交通事故 / むちうちの方
+          </div>
+          <h3 class="serif font-black text-3xl lg:text-4xl mt-4 leading-tight">自賠責保険適用で<br/>自己負担<span class="serif font-black text-6xl lg:text-8xl text-brand-200 align-baseline ml-2">¥0</span></h3>
+          <p class="mt-4 text-brand-100 max-w-md">施術費は加害者の自賠責保険から支払われるため、患者様の窓口負担は原則 0 円。慰謝料も別途請求可能です。</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15">
+          <div class="text-xs font-bold tracking-widest text-brand-200 mb-3">適用範囲</div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3"><span class="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-white text-brand-700 grid place-items-center font-bold text-xs">✓</span><span>施術費・検査費すべて自己負担なし</span></li>
+            <li class="flex items-start gap-3"><span class="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-white text-brand-700 grid place-items-center font-bold text-xs">✓</span><span>通院 1 日につき慰謝料 ¥4,300 が請求可能</span></li>
+            <li class="flex items-start gap-3"><span class="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-white text-brand-700 grid place-items-center font-bold text-xs">✓</span><span>休業損害・交通費の請求もサポート</span></li>
+            <li class="flex items-start gap-3"><span class="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-white text-brand-700 grid place-items-center font-bold text-xs">✓</span><span>保険会社への連絡・書類手続きを代行</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- regular price -->
+    <div class="mt-12">
+      <h3 class="serif font-bold text-xl lg:text-2xl mb-5 hgroup">通常料金（健康保険適用外・自費施術の方）</h3>
+      <div class="overflow-hidden rounded-2xl border border-brand-100 bg-white shadow-sm">
+        <table class="w-full text-sm lg:text-base">
+          <thead class="bg-brand-700 text-white">
+            <tr>
+              <th class="text-left font-semibold px-5 py-4">メニュー</th>
+              <th class="text-left font-semibold px-5 py-4 hidden sm:table-cell">内容</th>
+              <th class="text-right font-semibold px-5 py-4 whitespace-nowrap">料金（税込）</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-brand-100">
+            <tr>
+              <td class="px-5 py-4 font-bold">初診料</td>
+              <td class="px-5 py-4 text-ink-500 hidden sm:table-cell">問診・検査・初回施術</td>
+              <td class="px-5 py-4 text-right serif font-bold">¥3,300</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-bold">一般施術（30分）</td>
+              <td class="px-5 py-4 text-ink-500 hidden sm:table-cell">手技・電気療法</td>
+              <td class="px-5 py-4 text-right serif font-bold">¥4,400</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-bold">骨盤矯正（45分）</td>
+              <td class="px-5 py-4 text-ink-500 hidden sm:table-cell">姿勢分析＋矯正施術</td>
+              <td class="px-5 py-4 text-right serif font-bold">¥6,600</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-bold">スポーツ整体（60分）</td>
+              <td class="px-5 py-4 text-ink-500 hidden sm:table-cell">パフォーマンス向上施術</td>
+              <td class="px-5 py-4 text-right serif font-bold">¥8,800</td>
+            </tr>
+            <tr class="bg-brand-50/50">
+              <td class="px-5 py-4 font-bold">回数券（10回）</td>
+              <td class="px-5 py-4 text-ink-500 hidden sm:table-cell">一般施術 10 回分・有効期限 6 ヶ月</td>
+              <td class="px-5 py-4 text-right serif font-bold text-brand-700">¥39,600<span class="text-xs ml-1 text-ink-500 line-through">¥44,000</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-ink-500 mt-3">※ 学生割引・ご家族割引もございます。詳しくは受付までお問い合わせください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08B SIMULATOR ============ -->
+<section id="simulator" class="relative py-16 lg:py-24 bg-white border-t border-brand-100">
+  <style>
+    .sim-chip {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 0.625rem 0.75rem;
+      border-radius: 0.625rem;
+      border: 2px solid #dbeafe;
+      background: #fff;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #1e293b;
+      user-select: none;
+      min-height: 52px;
+    }
+    .sim-chip:hover { border-color: #48cae4; background: #f0fdfb; }
+    .sim-chip input { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
+    .sim-chip:has(input:checked) { border-color: #023e8a; background: #023e8a; color: #fff; }
+    .sim-chip small { font-size: 0.68rem; font-weight: 400; opacity: 0.75; }
+  </style>
+
+  <div class="max-w-3xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="eyebrow en">SIMULATOR</span>
+      <h2 class="serif font-black text-3xl lg:text-4xl mt-3 leading-tight">施術料金シミュレーター</h2>
+      <p class="mt-4 text-ink-700">症状・保険の種類・通院頻度を選ぶと、料金の目安をすぐに確認できます。</p>
+    </div>
+
+    <form id="sim-form" class="bg-white rounded-3xl shadow-xl border border-brand-100 overflow-hidden" novalidate>
+
+      <div class="p-7 lg:p-10 space-y-8">
+
+        <!-- STEP 1 -->
+        <fieldset>
+          <legend class="flex items-center gap-2.5 mb-4">
+            <span class="w-7 h-7 rounded-full bg-brand-600 text-white text-xs font-bold grid place-items-center shrink-0">1</span>
+            <span class="font-bold">症状を選んでください</span>
+            <span class="text-xs text-ink-400">複数選択可</span>
+          </legend>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="sim-symptom-grid"></div>
+        </fieldset>
+
+        <!-- STEP 2 -->
+        <fieldset>
+          <legend class="flex items-center gap-2.5 mb-4">
+            <span class="w-7 h-7 rounded-full bg-brand-600 text-white text-xs font-bold grid place-items-center shrink-0">2</span>
+            <span class="font-bold">保険の種類</span>
+          </legend>
+          <div class="grid sm:grid-cols-3 gap-3" id="sim-insurance-grid"></div>
+        </fieldset>
+
+        <!-- STEP 3 -->
+        <fieldset>
+          <legend class="flex items-center gap-2.5 mb-4">
+            <span class="w-7 h-7 rounded-full bg-brand-600 text-white text-xs font-bold grid place-items-center shrink-0">3</span>
+            <span class="font-bold">希望する通院頻度</span>
+          </legend>
+          <div class="grid grid-cols-3 gap-3" id="sim-frequency-grid"></div>
+        </fieldset>
+      </div>
+
+      <!-- RESULT -->
+      <div class="bg-gradient-to-br from-brand-700 to-brand-900 text-white p-7 lg:p-10">
+
+        <div id="sim-zero-badge" style="display:none" class="inline-flex items-center gap-2 bg-green-400/20 border border-green-400/40 text-green-300 rounded-full px-4 py-1.5 text-sm font-bold mb-5">
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          自賠責保険適用 — 窓口負担は原則 ¥0
+        </div>
+
+        <div class="divide-y divide-white/10">
+          <div class="flex justify-between items-baseline py-4">
+            <span class="text-sm text-brand-200">施術料金（1回）</span>
+            <span id="sim-fee" class="serif font-black text-2xl">—</span>
+          </div>
+          <div class="flex justify-between items-baseline py-4">
+            <div>
+              <span class="text-sm text-brand-200">月額合計（目安）</span>
+              <div id="sim-freq-note" class="text-xs text-brand-400 mt-0.5"></div>
+            </div>
+            <span id="sim-monthly" class="serif font-black text-2xl">—</span>
+          </div>
+          <div class="flex justify-between items-baseline py-4">
+            <div>
+              <span class="text-sm text-brand-200">月額自己負担額</span>
+              <div id="sim-note" class="text-xs text-brand-400 mt-0.5"></div>
+            </div>
+            <span id="sim-self" class="serif font-black text-3xl lg:text-4xl text-brand-100">—</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-brand-400 mt-4">※ 目安金額です。実際の料金は症状・施術内容・保険の適用条件により異なります。</p>
+
+        <a href="#reserve" class="mt-6 flex items-center justify-center gap-2 bg-white text-brand-800 hover:bg-brand-50 font-bold rounded-full py-4 text-sm transition">
+          無料相談はこちら
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+        </a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+  (function () {
+    var SYMPTOMS = [
+      { value: 'neck',     label: '首の痛み' },
+      { value: 'lower',    label: '腰痛' },
+      { value: 'shoulder', label: '肩こり' },
+      { value: 'headache', label: '頭痛' },
+      { value: 'numbness', label: 'しびれ' },
+    ];
+    var INSURANCE = [
+      { value: 'jibaiseki', label: '自賠責保険', desc: '交通事故の方' },
+      { value: 'kenko',     label: '健康保険',   desc: '3割負担' },
+      { value: 'jihi',      label: '自費',       desc: '全額自己負担' },
+    ];
+    var FREQ = [
+      { value: '1', label: '週1回', visits: 4,  note: '月4回ペース' },
+      { value: '2', label: '週2回', visits: 8,  note: '月8回ペース' },
+      { value: '3', label: '週3回', visits: 12, note: '月12回ペース' },
+    ];
+
+    function baseFee(count) {
+      if (count <= 0) return null;
+      if (count === 1) return 4400;
+      if (count === 2) return 5500;
+      return 6600;
+    }
+
+    function fmt(n) {
+      return '¥' + n.toLocaleString('ja-JP');
+    }
+
+    function buildChips(gridId, items, name, type) {
+      var grid = document.getElementById(gridId);
+      items.forEach(function (item, i) {
+        var label = document.createElement('label');
+        label.className = 'sim-chip';
+        var input = document.createElement('input');
+        input.type = type;
+        input.name = name;
+        input.value = item.value;
+        if (type === 'radio' && i === 0) input.checked = true;
+        var span = document.createElement('span');
+        span.textContent = item.label;
+        label.appendChild(input);
+        label.appendChild(span);
+        if (item.desc) {
+          var small = document.createElement('small');
+          small.textContent = item.desc;
+          label.appendChild(small);
+        }
+        grid.appendChild(label);
+      });
+    }
+
+    function findFreq(val) {
+      for (var i = 0; i < FREQ.length; i++) {
+        if (FREQ[i].value === val) return FREQ[i];
+      }
+      return FREQ[0];
+    }
+
+    function calc() {
+      var checked = document.querySelectorAll('#sim-form input[name="symptom"]:checked');
+      var insuranceEl = document.querySelector('#sim-form input[name="insurance"]:checked');
+      var freqEl = document.querySelector('#sim-form input[name="frequency"]:checked');
+
+      var count = checked.length;
+      var insurance = insuranceEl ? insuranceEl.value : 'jibaiseki';
+      var freqData = findFreq(freqEl ? freqEl.value : '1');
+
+      var fee = baseFee(count);
+
+      var feeEl      = document.getElementById('sim-fee');
+      var monthlyEl  = document.getElementById('sim-monthly');
+      var selfEl     = document.getElementById('sim-self');
+      var noteEl     = document.getElementById('sim-note');
+      var freqNoteEl = document.getElementById('sim-freq-note');
+      var zeroBadge  = document.getElementById('sim-zero-badge');
+
+      if (fee === null) {
+        feeEl.textContent = '症状を選択してください';
+        monthlyEl.textContent = '—';
+        selfEl.textContent = '—';
+        noteEl.textContent = '';
+        freqNoteEl.textContent = '';
+        zeroBadge.style.display = 'none';
+        return;
+      }
+
+      var monthly = fee * freqData.visits;
+      var selfPay, note, isZero;
+
+      if (insurance === 'jibaiseki') {
+        selfPay = 0;
+        note = '自賠責保険が施術費を全額カバー';
+        isZero = true;
+      } else if (insurance === 'kenko') {
+        selfPay = Math.round(monthly * 0.3);
+        note = '健康保険3割負担の場合（目安）';
+        isZero = false;
+      } else {
+        selfPay = monthly;
+        note = '全額自己負担';
+        isZero = false;
+      }
+
+      feeEl.textContent = fmt(fee);
+      monthlyEl.textContent = fmt(monthly);
+      selfEl.textContent = isZero ? '¥0' : fmt(selfPay);
+      noteEl.textContent = note;
+      freqNoteEl.textContent = freqData.note;
+      zeroBadge.style.display = isZero ? 'inline-flex' : 'none';
+    }
+
+    buildChips('sim-symptom-grid', SYMPTOMS, 'symptom', 'checkbox');
+    buildChips('sim-insurance-grid', INSURANCE, 'insurance', 'radio');
+    buildChips('sim-frequency-grid', FREQ, 'frequency', 'radio');
+
+    document.getElementById('sim-form').addEventListener('change', calc);
+    calc();
+  })();
+  </script>
+</section>
+
+<!-- ============ 09 VOICES ============ -->
+<section id="voice" class="relative py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="eyebrow en">VOICES</span>
+      <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">患者様の声</h2>
+      <p class="mt-4 text-ink-700">実際に通院された方からの声をご紹介します。</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      <!-- voice 1 -->
+      <article class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-8 border border-brand-100 relative">
+        <div class="absolute -top-4 left-6 serif font-black text-7xl text-brand-200 leading-none select-none">"</div>
+        <div class="flex items-center gap-1 text-brand-500 mb-3">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        </div>
+        <h3 class="serif font-bold text-lg leading-snug">追突事故後の頭痛が、<br/>3週間でほぼ消えました</h3>
+        <p class="mt-3 text-sm text-ink-700 leading-relaxed">信号待ちで追突され、首と頭の重さが続いていました。病院では「異常なし」と言われ不安でしたが、こちらで丁寧に診ていただき、保険手続きも全て任せられて本当に助かりました。</p>
+        <div class="mt-5 pt-5 border-t border-brand-100 flex items-center gap-3">
+          <img src="images/voice1.jpg" alt="A.Kさん（30代女性）のシルエット" class="w-11 h-11 rounded-full object-cover" />
+          <div>
+            <div class="font-bold text-sm">A.K さん</div>
+            <div class="text-xs text-ink-500">30代 女性 / 会社員</div>
+          </div>
+        </div>
+      </article>
+      <!-- voice 2 -->
+      <article class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-8 border border-brand-100 relative">
+        <div class="absolute -top-4 left-6 serif font-black text-7xl text-brand-200 leading-none select-none">"</div>
+        <div class="flex items-center gap-1 text-brand-500 mb-3">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        </div>
+        <h3 class="serif font-bold text-lg leading-snug">仕事帰りに通えて、<br/>転院もスムーズでした</h3>
+        <p class="mt-3 text-sm text-ink-700 leading-relaxed">前に通っていた接骨院では待ち時間も長く改善も見られず…。夜20時まで対応していると知って転院。保険会社への連絡まで対応してくれて、本当に助かりました。</p>
+        <div class="mt-5 pt-5 border-t border-brand-100 flex items-center gap-3">
+          <img src="images/voice2.jpg" alt="T.Mさん（40代男性）のシルエット" class="w-11 h-11 rounded-full object-cover" />
+          <div>
+            <div class="font-bold text-sm">T.M さん</div>
+            <div class="text-xs text-ink-500">40代 男性 / 営業職</div>
+          </div>
+        </div>
+      </article>
+      <!-- voice 3 -->
+      <article class="bg-paper rounded-2xl p-5 sm:p-7 lg:p-8 border border-brand-100 relative">
+        <div class="absolute -top-4 left-6 serif font-black text-7xl text-brand-200 leading-none select-none">"</div>
+        <div class="flex items-center gap-1 text-brand-500 mb-3">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        </div>
+        <h3 class="serif font-bold text-lg leading-snug">手のしびれが取れ、<br/>家事もできるように</h3>
+        <p class="mt-3 text-sm text-ink-700 leading-relaxed">事故から数週間経って手にしびれが出始め不安でした。先生が原因をきちんと説明してくれて、自宅でのケアも教えてもらえたのが心強かったです。半年通って、すっかり元通りです。</p>
+        <div class="mt-5 pt-5 border-t border-brand-100 flex items-center gap-3">
+          <img src="images/voice3.jpg" alt="N.Sさん（50代女性）のシルエット" class="w-11 h-11 rounded-full object-cover" />
+          <div>
+            <div class="font-bold text-sm">N.S さん</div>
+            <div class="text-xs text-ink-500">50代 女性 / 主婦</div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="text-xs text-ink-500 mt-6 text-center">※ 個人の感想であり、症状の改善には個人差があります。</p>
+  </div>
+</section>
+
+<!-- ============ 10 DIRECTOR ============ -->
+<section id="doctor" class="relative py-20 lg:py-28 bg-gradient-to-b from-paper to-white">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <!-- photo -->
+      <div class="lg:col-span-5 lg:sticky lg:top-28">
+        <div class="relative">
+          <div class="absolute -top-4 -left-4 w-full h-full rounded-[2rem] bg-brand-100"></div>
+          <div class="relative rounded-[2rem] overflow-hidden shadow-xl aspect-[4/5]">
+            <img src="images/sasainozomu.jpg" alt="院長 笹井望" class="w-full h-full object-cover" />
+          </div>
+          <div class="absolute -bottom-5 right-0 sm:-right-3 lg:-right-6 bg-white shadow-xl rounded-2xl px-4 py-3 sm:px-5 sm:py-4 border border-brand-100">
+            <div class="text-[10px] text-ink-500 font-bold tracking-widest">DIRECTOR</div>
+            <div class="serif font-black text-xl mt-0.5">笹井 望 <span class="text-sm text-ink-500 font-normal en">SASAI Nozomu</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- bio -->
+      <div class="lg:col-span-7">
+        <span class="eyebrow en">GREETING</span>
+        <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">院長挨拶</h2>
+        <h3 class="serif font-bold text-xl lg:text-2xl mt-6 text-brand-700 leading-relaxed">事故後の不安に、寄り添う整骨院でありたい。</h3>
+        <div class="mt-5 space-y-4 text-ink-700 leading-relaxed">
+          <p>はじめまして、笹井整骨院 院長の笹井 望です。当院は2008年の開院以来、神戸市中央区で17年間、地域の皆様の身体と向き合ってまいりました。</p>
+          <p>特に交通事故後の不調は「外から見えない痛み」がほとんど。患者様ご自身も気づかないうちに後遺症が残ってしまうケースを、多く目にしてきました。だからこそ私たちは、最初の問診で時間をかけて症状を伺い、お一人おひとりに合わせた施術計画を立てています。</p>
+          <p>また、保険会社とのやり取りに悩む方も多くいらっしゃいます。手続きや費用のことで不安を感じる必要はありません。当院のスタッフがすべてサポートいたします。「ここに来てよかった」と思っていただけるよう、スタッフ一同 全力でお迎えします。</p>
+        </div>
+
+        <!-- bio cards -->
+        <div class="mt-8 grid sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl border border-brand-100 p-5">
+            <div class="text-[10px] font-bold text-brand-600 tracking-widest mb-2">経歴 / CAREER</div>
+            <ul class="text-sm space-y-1.5 text-ink-700">
+              <li><span class="en font-semibold text-ink-900">2003</span>　関西医療学園 柔道整復学科 卒業</li>
+              <li><span class="en font-semibold text-ink-900">2003–08</span>　大阪市内の整形外科で研鑽</li>
+              <li><span class="en font-semibold text-ink-900">2008</span>　笹井整骨院 開業</li>
+              <li><span class="en font-semibold text-ink-900">2019</span>　兵庫県柔道整復師会 理事就任</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl border border-brand-100 p-5">
+            <div class="text-[10px] font-bold text-brand-600 tracking-widest mb-2">資格 / LICENSE</div>
+            <ul class="text-sm space-y-1.5 text-ink-700">
+              <li>· 柔道整復師（厚生労働省認定 国家資格）</li>
+              <li>· JCCA認定 ベーシックインストラクター</li>
+              <li>· 日本整形内科学研究会 会員</li>
+              <li>· 兵庫県柔道整復師会 所属</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 flex items-center gap-3 text-sm">
+          <div class="font-bold serif text-2xl">笹井 望</div>
+          <div class="text-ink-500">院長</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 FAQ ============ -->
+<section id="faq" class="relative py-20 lg:py-28 paper-tex">
+  <div class="max-w-4xl mx-auto px-5 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="eyebrow en">FAQ</span>
+      <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">よくある質問</h2>
+    </div>
+
+    <div class="space-y-3">
+      <details class="group bg-white rounded-2xl border border-brand-100 overflow-hidden shadow-sm" open>
+        <summary class="flex items-start gap-2 sm:gap-4 p-4 sm:p-6">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-brand-100 text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">Q</span>
+          <span class="flex-1 min-w-0 font-bold text-sm sm:text-base lg:text-lg pt-1">本当に自己負担0円で通院できますか？</span>
+          <span class="faq-icon shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-500 text-white grid place-items-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </summary>
+        <div class="px-4 pb-4 sm:px-6 sm:pb-6 flex items-start gap-2 sm:gap-4">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-paper text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">A</span>
+          <p class="flex-1 min-w-0 text-ink-700 leading-relaxed text-sm lg:text-base">はい、交通事故によるおケガの場合、施術費は加害者側の自賠責保険から支払われます。患者様の窓口負担は原則として0円です。保険手続きの方法も、当院スタッフが丁寧にご説明します。</p>
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-brand-100 overflow-hidden shadow-sm">
+        <summary class="flex items-start gap-2 sm:gap-4 p-4 sm:p-6">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-brand-100 text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">Q</span>
+          <span class="flex-1 min-w-0 font-bold text-sm sm:text-base lg:text-lg pt-1">病院に通院中ですが、整骨院にも通えますか？</span>
+          <span class="faq-icon shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-500 text-white grid place-items-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </summary>
+        <div class="px-4 pb-4 sm:px-6 sm:pb-6 flex items-start gap-2 sm:gap-4">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-paper text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">A</span>
+          <p class="flex-1 min-w-0 text-ink-700 leading-relaxed text-sm lg:text-base">可能です。整形外科で月1〜2回の経過観察を続けながら、当院で施術を受けるという併院パターンが多くの患者様に選ばれています。当院での施術内容も、ご希望があれば病院の主治医にお伝えします。</p>
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-brand-100 overflow-hidden shadow-sm">
+        <summary class="flex items-start gap-2 sm:gap-4 p-4 sm:p-6">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-brand-100 text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">Q</span>
+          <span class="flex-1 min-w-0 font-bold text-sm sm:text-base lg:text-lg pt-1">他の整骨院から転院することはできますか？</span>
+          <span class="faq-icon shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-500 text-white grid place-items-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </summary>
+        <div class="px-4 pb-4 sm:px-6 sm:pb-6 flex items-start gap-2 sm:gap-4">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-paper text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">A</span>
+          <p class="flex-1 min-w-0 text-ink-700 leading-relaxed text-sm lg:text-base">転院は患者様の権利として認められています。保険会社への連絡が必要ですが、当院がすべて代行いたしますのでご安心ください。これまで多くの方の転院対応をしてまいりました。</p>
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-brand-100 overflow-hidden shadow-sm">
+        <summary class="flex items-start gap-2 sm:gap-4 p-4 sm:p-6">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-brand-100 text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">Q</span>
+          <span class="flex-1 min-w-0 font-bold text-sm sm:text-base lg:text-lg pt-1">どのくらいの頻度で通えばいいですか？</span>
+          <span class="faq-icon shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-500 text-white grid place-items-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </summary>
+        <div class="px-4 pb-4 sm:px-6 sm:pb-6 flex items-start gap-2 sm:gap-4">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-paper text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">A</span>
+          <p class="flex-1 min-w-0 text-ink-700 leading-relaxed text-sm lg:text-base">症状の程度によりますが、事故直後は週3〜4回、症状が落ち着いてきたら週1〜2回が目安です。患者様の症状とライフスタイルに合わせて、無理のないプランをご提案します。</p>
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-brand-100 overflow-hidden shadow-sm">
+        <summary class="flex items-start gap-2 sm:gap-4 p-4 sm:p-6">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-brand-100 text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">Q</span>
+          <span class="flex-1 min-w-0 font-bold text-sm sm:text-base lg:text-lg pt-1">事故後、時間が経っていますが今からでも通えますか？</span>
+          <span class="faq-icon shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-500 text-white grid place-items-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </summary>
+        <div class="px-4 pb-4 sm:px-6 sm:pb-6 flex items-start gap-2 sm:gap-4">
+          <span class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-paper text-brand-700 grid place-items-center serif font-black text-base sm:text-lg">A</span>
+          <p class="flex-1 min-w-0 text-ink-700 leading-relaxed text-sm lg:text-base">事故から2週間以内のご来院が望ましいですが、それ以降でも対応可能なケースがあります。まずは無料相談にてご状況をお伺いさせてください。早めにご連絡ください。</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 ACCESS ============ -->
+<section id="access" class="relative py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="eyebrow en">ACCESS</span>
+      <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">アクセス・診療時間</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-10">
+      
+      <!-- info -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- 院情報 -->
+        <div class="bg-paper rounded-2xl p-6 lg:p-7 border border-brand-100">
+          <h3 class="serif font-bold text-xl mb-4 hgroup">院情報</h3>
+          <dl class="space-y-3 text-sm">
+            <div class="flex gap-3">
+              <dt class="w-20 shrink-0 text-ink-500 font-semibold">院名</dt>
+              <dd class="font-medium break-words">笹井整骨院</dd>
+            </div>
+            <div class="flex gap-3">
+              <dt class="w-20 shrink-0 text-ink-500 font-semibold">住所</dt>
+              <dd class="font-medium break-words">
+                〒651-0086<br/>兵庫県神戸市中央区磯上通 3-1-X<br/>三宮ハーバービル 2F
+              </dd>
+            </div>
+            <div class="flex gap-3">
+              <dt class="w-20 shrink-0 text-ink-500 font-semibold">電話</dt>
+              <dd class="font-medium en text-base break-words">078-000-0000</dd>
+            </div>
+            <div class="flex gap-3">
+              <dt class="w-20 shrink-0 text-ink-500 font-semibold">最寄駅</dt>
+              <dd class="font-medium break-words">
+                JR三宮駅 徒歩5分<br/>地下鉄三宮駅 徒歩3分
+              </dd>
+            </div>
+            <div class="flex gap-3">
+              <dt class="w-20 shrink-0 text-ink-500 font-semibold">駐車場</dt>
+              <dd class="font-medium break-words">提携駐車場あり（受付にて30分無料券配布）</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- 診療時間 -->
+        <div class="bg-paper rounded-2xl p-6 lg:p-7 border border-brand-100">
+          <h3 class="serif font-bold text-xl mb-4 hgroup">診療時間</h3>
+
+          <!-- ★ ここに overflow-x-auto を追加 -->
+          <div class="overflow-x-auto rounded-xl border border-brand-100">
+
+            <!-- ★ table に min-w-full table-fixed を追加 -->
+            <table class="w-full min-w-full table-fixed text-center text-xs sm:text-sm">
+              <thead class="bg-brand-700 text-white">
+                <tr>
+                  <th class="font-semibold py-2 sm:py-2.5 text-left pl-2 sm:pl-4 break-words">時間</th>
+                  <th class="font-semibold py-2 sm:py-2.5 break-words">月</th>
+                  <th class="font-semibold py-2 sm:py-2.5 break-words">火</th>
+                  <th class="font-semibold py-2 sm:py-2.5 break-words">水</th>
+                  <th class="font-semibold py-2 sm:py-2.5 break-words">木</th>
+                  <th class="font-semibold py-2 sm:py-2.5 break-words">金</th>
+                  <th class="font-semibold py-2 sm:py-2.5 break-words">土</th>
+                  <th class="font-semibold py-2 sm:py-2.5 break-words">日祝</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white">
+                <tr class="border-b border-brand-100">
+                  <td class="py-2 sm:py-3 text-left pl-2 sm:pl-4 font-semibold break-words">9:00–13:00</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-ink-400 break-words">／</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                </tr>
+                <tr>
+                  <td class="py-2 sm:py-3 text-left pl-2 sm:pl-4 font-semibold break-words">15:00–20:00</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-ink-400 break-words">／</td>
+                  <td class="text-brand-600 font-bold break-words">●</td>
+                  <td class="text-ink-500 text-xs break-words">〜18時</td>
+                  <td class="text-ink-500 text-xs break-words">〜17時</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-xs text-ink-500 mt-3">休診日：木曜日／祝日は日曜と同じ診療時間です。</p>
+        </div>
+      </div>
+
+      <!-- map -->
+      <div class="lg:col-span-7">
+
+        <!-- ★ overflow-hidden + aspect-auto を追加 -->
+        <div class="relative rounded-2xl overflow-hidden border border-brand-100 shadow-sm aspect-auto sm:aspect-[4/3] lg:aspect-auto lg:h-full min-h-[420px] bg-brand-50">
+
+          <!-- ★ iframe に w-full h-full max-w-full を追加 -->
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=135.1900%2C34.6900%2C135.2050%2C34.7000&amp;layer=mapnik&amp;marker=34.6950%2C135.1975"
+            class="absolute inset-0 w-full h-full max-w-full"
+            style="border:0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="笹井整骨院 地図"></iframe>
+          <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur rounded-xl p-4 shadow-lg flex items-center gap-4 pointer-events-none">
+            <div class="w-10 h-10 rounded-full bg-brand-500 text-white grid place-items-center shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="text-sm leading-snug break-words">
+              <div class="font-bold">笹井整骨院</div>
+              <div class="text-ink-500 text-xs break-words">兵庫県神戸市中央区磯上通 3-1-X / 三宮駅 徒歩5分</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 13 RESERVE CTA ============ -->
+<section id="reserve" class="relative py-20 lg:py-28 stripe-bg text-white overflow-hidden">
+  <div aria-hidden="true" class="hidden sm:block absolute -top-20 -right-20 w-[420px] h-[420px] rounded-full bg-white/5 blur-2xl"></div>
+  <div aria-hidden="true" class="hidden sm:block absolute -bottom-32 -left-20 w-[480px] h-[480px] rounded-full bg-brand-400/10 blur-2xl"></div>
+  <div class="relative max-w-5xl mx-auto px-5 lg:px-8 text-center">
+    <span class="eyebrow en !text-brand-200">RESERVATION</span>
+    <h2 class="serif font-black text-3xl lg:text-5xl mt-3 leading-tight">事故後の不調、<br class="sm:hidden"/>一人で悩まないでください。</h2>
+    <p class="mt-5 text-brand-100 max-w-xl mx-auto">電話・WEB どちらからでも、24時間ご相談を受け付けています。<br>当日のご予約も可能です。</p>
+
+    <div class="mt-10 grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+      <a href="tel:0780000000" class="btn-focus group bg-white text-brand-700 rounded-2xl p-4 sm:p-6 hover:bg-brand-50 transition shadow-xl">
+        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-100 grid place-items-center">
+            <svg class="w-5 h-5 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.88.7 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.11-.45c.9.34 1.83.57 2.78.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="text-xs font-bold text-ink-500 tracking-widest">お電話で予約</span>
+        </div>
+        <div class="serif font-black text-3xl lg:text-4xl en">078-000-0000</div>
+        <div class="text-xs text-ink-500 mt-1">受付 9:00–20:00（木曜定休）</div>
+      </a>
+      <a href="#" class="btn-focus group bg-brand-500 hover:bg-brand-400 text-white rounded-2xl p-4 sm:p-6 transition shadow-xl ring-1 ring-white/20">
+        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+          <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 grid place-items-center">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </span>
+          <span class="text-xs font-bold opacity-80 tracking-widest">WEB で予約</span>
+        </div>
+        <div class="serif font-black text-2xl lg:text-3xl">24時間 オンライン予約</div>
+        <div class="text-xs opacity-80 mt-1">空き状況をその場で確認 → 予約完了</div>
+      </a>
+    </div>
+
+    <div class="mt-8 inline-flex items-center gap-2 text-sm text-brand-100">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      LINE 公式アカウントからのご予約も承っております
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink-900 text-ink-400 py-12">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-3 gap-8 items-start">
+    <div>
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-brand-500 grid place-items-center text-white serif font-bold text-xl">笹</div>
+        <div>
+          <div class="serif font-bold text-white text-lg">笹井整骨院</div>
+          <div class="text-xs tracking-widest">SASAI SEIKOTSU-IN</div>
+        </div>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed">交通事故・むちうち専門。神戸市中央区で17年。自賠責保険対応で自己負担0円。</p>
+    </div>
+    <div class="text-sm space-y-2">
+      <div class="text-white font-semibold mb-2">院情報</div>
+      <div>〒651-0086 兵庫県神戸市中央区磯上通 3-1-X 三宮ハーバービル 2F</div>
+      <div>TEL <span class="en">078-000-0000</span></div>
+      <div>診療時間 9:00–13:00 / 15:00–20:00（木曜定休）</div>
+    </div>
+    <div class="text-sm">
+      <div class="text-white font-semibold mb-2">メニュー</div>
+      <ul class="grid grid-cols-2 gap-y-2 gap-x-4">
+        <li><a href="#symptoms" class="hover:text-white">症状について</a></li>
+        <li><a href="#reasons" class="hover:text-white">選ばれる理由</a></li>
+        <li><a href="#flow" class="hover:text-white">施術の流れ</a></li>
+        <li><a href="#price" class="hover:text-white">料金</a></li>
+        <li><a href="#voice" class="hover:text-white">患者様の声</a></li>
+        <li><a href="#faq" class="hover:text-white">よくある質問</a></li>
+        <li><a href="#access" class="hover:text-white">アクセス</a></li>
+        <li><a href="#reserve" class="hover:text-white">予約</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs">
+    <div>© 2026 笹井整骨院 / SASAI Seikotsu-in. All rights reserved.</div>
+    <div class="flex gap-4">
+      <a href="#" class="hover:text-white">プライバシーポリシー</a>
+      <a href="#" class="hover:text-white">特定商取引法に基づく表記</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING CTA ============ -->
+<div class="floating-cta fixed bottom-0 inset-x-0 z-50 pb-[env(safe-area-inset-bottom)] pointer-events-none">
+  <div class="max-w-7xl mx-auto px-3 lg:px-8 lg:pb-5">
+    <div class="pointer-events-auto bg-white/95 backdrop-blur shadow-2xl border-t lg:border lg:border-brand-100 lg:rounded-2xl flex items-stretch overflow-hidden">
+      <div class="hidden md:flex flex-col justify-center px-5 py-3 border-r border-brand-100">
+        <div class="text-[10px] font-bold text-alert tracking-widest">事故後の方へ</div>
+        <div class="serif font-bold text-sm text-ink-900 leading-snug">自賠責保険適用で自己負担<span class="text-brand-600 en text-base mx-0.5">¥0</span></div>
+      </div>
+      <a href="tel:0780000000" class="flex-1 min-w-0 flex items-center justify-center gap-1 sm:gap-2 py-3 px-2 hover:bg-brand-50 transition">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.88.7 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.11-.45c.9.34 1.83.57 2.78.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div class="text-left leading-tight min-w-0">
+          <div class="text-[10px] font-bold text-ink-500">お電話</div>
+          <div class="en font-black text-xs sm:text-sm text-ink-900 break-all">078-000-0000</div>
+        </div>
+      </a>
+      <a href="#reserve" class="flex-1 min-w-0 flex items-center justify-center gap-1 sm:gap-2 py-3 px-2 bg-brand-500 hover:bg-brand-600 text-white transition">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div class="text-left leading-tight min-w-0">
+          <div class="text-[10px] font-bold opacity-80">24時間受付</div>
+          <div class="font-bold text-sm sm:text-base">WEB予約</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

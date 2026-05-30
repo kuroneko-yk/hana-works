@@ -1,0 +1,11 @@
+# 画像格納フォルダ
+
+このフォルダに以下の画像を配置してください（詳細は ../README.md を参照）：
+
+- hero-treatment.jpg          (4:5, 640×800+) ヒーロー施術風景
+- symptoms-patient.jpg        (4:5, 520×650+) 症状セクション
+- reason-01.jpg ~ reason-05.jpg (4:3, 600×450+) 選ばれる理由
+- cta-banner-01.jpg, cta-banner-02.jpg (1920×500) CTAバナー背景
+- clinic-01.jpg ~ clinic-06.jpg 院内ギャラリー（待合/ベッド/受付/キッズ/機器/外観）
+- voice-01.jpg ~ voice-03.jpg (80×80) 患者様の声アバター
+- director.jpg                (4:5, 640×800+) 院長 笹井望
