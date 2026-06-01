@@ -863,7 +863,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.35; }
 }
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* PCは1列（3人を縦積み）に変更 */
+  grid-template-columns: 1fr;
   gap: 1px;
   background: rgba(201,168,76,0.08);
   border: 1px solid rgba(201,168,76,0.08);
@@ -912,6 +913,27 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.35; }
   color: rgba(201,168,76,0.4);
   flex-shrink: 0;
 }
+
+/* ── PC専用：カードを横並び（ビフォーアフター写真 左 ＋ テキスト 右）にする ── */
+@media (min-width: 769px) {
+  /* グリッド全体の最大幅を設定して中央寄せ */
+  .testimonials-grid {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* カード内を横並びに変更 */
+  .testimonial-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  /* 写真エリアの幅を固定 */
+  .before-after {
+    flex: 0 0 360px;
+  }
+}
+
 .testimonial-result {
   display: inline-block;
   background: var(--gold);
@@ -1332,9 +1354,87 @@ section#trainers {
 body #trainers {
   background: #0f0d0a !important;
 }
+
+/* ── hana-works ラッパーヘッダー ── */
+#hw-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: rgba(247,245,240,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2ddd6;
+}
+#hw-bar img { height: 30px; width: auto; }
+#hw-bar .hw-back {
+  color: #7a756e;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+#hw-bar .hw-back:hover { color: #0f0e0d; }
+
+/* LPの#navbarをhana-worksバー＋制作例バナー分だけ下にずらす */
+#navbar { top: 96px !important; }
+
+/* ── 制作例バナー ── */
+/* hana-worksバー直下に常に固定表示 */
+#hw-notice {
+  position: fixed;
+  top: 48px; left: 0; right: 0;
+  z-index: 198;
+  background: #f5efe8;
+  border-bottom: 1px solid #e2ddd6;
+  text-align: center;
+  padding: 0.8rem 1rem;
+  font-size: 0.78rem;
+  color: #7a756e;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+}
+/* スマホのみ改行（hw-brクラス）を表示する */
+.hw-br { display: none; }
+@media (max-width: 640px) { .hw-br { display: inline; } }
+
+/* ── hana-works フッター ── */
+#hw-footer {
+  background: #0a0908;
+  color: rgba(247,245,240,0.35);
+  padding: 2rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  border-top: 1px solid rgba(247,245,240,0.06);
+}
+#hw-footer a { color: rgba(247,245,240,0.35); text-decoration: none; }
+#hw-footer a:hover { color: rgba(247,245,240,0.7); }
+@media (max-width: 768px) {
+  #hw-footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem; }
+}
 </style>
 </head>
 <body>
+
+<!-- ── hana-works ラッパーヘッダー ── -->
+<div id="hw-bar">
+  <a href="../index.html">
+    <img src="../img/hanaworks.png" alt="hana-works">
+  </a>
+  <a href="../index.html" class="hw-back">← ホームへ戻る</a>
+</div>
+
+<!-- ── 制作例のお知らせバナー ── -->
+<div id="hw-notice">
+  こちらはhana-worksの制作例です。<span class="hw-br"><br></span>実際のウェブサイトではありません。
+</div>
+
 
 <!-- NAVBAR -->
 <nav id="navbar">
@@ -1865,5 +1965,12 @@ document.documentElement.style.setProperty('--black', d.bg);
 document.documentElement.style.setProperty('--black-2', d.bg2);
 if (d.headingFont) document.documentElement.style.setProperty('--serif', `'${d.headingFont}', serif`);
 </script>
+
+<!-- ── hana-works フッター ── -->
+<footer id="hw-footer">
+  <span style="color: rgba(247,245,240,0.5); font-size: 0.85rem; font-family: 'Noto Serif JP', serif;">hana-works</span>
+  <span>© 2025 hana-works. All rights reserved.</span>
+</footer>
+
 </body>
 </html>

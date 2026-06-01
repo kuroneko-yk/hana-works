@@ -134,9 +134,96 @@ tailwind.config = {
   /* floating CTA */
   #float-cta { transition: transform 0.4s ease; transform: translateY(120%); }
   #float-cta.show { transform: translateY(0); }
+
+  /* ── hana-works ラッパーヘッダー ── */
+  /* ページ上部に固定表示される帯。z-index:200 でLPのナビ（z-50）より手前に出す */
+  /* index.html のナビと同じ背景色・すりガラス効果を使用 */
+  #hw-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 48px;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background: rgba(247,245,240,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2ddd6;
+  }
+  /* hana-worksロゴ画像のサイズ */
+  #hw-bar img { height: 30px; width: auto; }
+  /* 「ホームへ戻る」リンクのスタイル */
+  #hw-bar .hw-back {
+    color: #7a756e;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  #hw-bar .hw-back:hover { color: #0f0e0d; }
+
+  /* hana-worksバー＋制作例バナー分だけ、LPのナビを下にずらす */
+  #navbar { top: 96px !important; }
+
+  /* ── 制作例バナー ── */
+  /* hana-worksバー直下に常に固定表示。スクロールしても消えない */
+  #hw-notice {
+    position: fixed;
+    top: 48px; left: 0; right: 0;
+    z-index: 198;
+    background: #f5efe8;
+    border-bottom: 1px solid #e2ddd6;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.78rem;
+    color: #7a756e;
+    letter-spacing: 0.06em;
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+  }
+  /* スマホのみ改行（hw-brクラス）を表示する */
+  .hw-br { display: none; }
+  @media (max-width: 640px) { .hw-br { display: inline; } }
+
+  /* ── hana-works フッター ── */
+  /* ページ最下部に表示されるフッター。index.html と同じデザイン */
+  #hw-footer {
+    background: #0a0908;
+    color: rgba(247,245,240,0.35);
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border-top: 1px solid rgba(247,245,240,0.06);
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  #hw-footer a { color: rgba(247,245,240,0.35); text-decoration: none; }
+  #hw-footer a:hover { color: rgba(247,245,240,0.7); }
+  /* スマホ表示のフッター調整 */
+  @media (max-width: 768px) {
+    #hw-footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem; }
+  }
 </style>
 </head>
 <body class="bg-bloom-cream">
+
+<!-- ── hana-works ラッパーヘッダー ── -->
+<!-- ページを閲覧中でも常にホームへ戻れる固定バー -->
+<div id="hw-bar">
+  <a href="../index.html">
+    <img src="../img/hanaworks.png" alt="hana-works">
+  </a>
+  <a href="../index.html" class="hw-back">← ホームへ戻る</a>
+</div>
+
+<!-- ── 制作例のお知らせバナー ── -->
+<!-- ページ先頭に表示される案内テキスト（スクロールで消える） -->
+<div id="hw-notice">
+  こちらはhana-worksの制作例です。<span class="hw-br"><br></span>実際のウェブサイトではありません。
+</div>
 
 <!-- ═══════════════════════════════════════
      NAVBAR
@@ -791,6 +878,13 @@ tailwind.config = {
     }, 1200);
   });
 </script>
+
+<!-- ── hana-works フッター ── -->
+<!-- ページ最下部に表示されるフッター（index.html と同じデザイン） -->
+<footer id="hw-footer">
+  <span style="color: rgba(247,245,240,0.5); font-size: 0.85rem; font-family: 'Noto Serif JP', serif;">hana-works</span>
+  <span>© 2025 hana-works. All rights reserved.</span>
+</footer>
 
 </body>
 </html>

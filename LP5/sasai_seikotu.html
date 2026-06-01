@@ -114,9 +114,86 @@
 
   /* Hide floating bar on print */
   @media print { .floating-cta { display:none !important; } }
+
+  /* ── hana-works ラッパーヘッダー ── */
+  #hw-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 48px;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background: rgba(247,245,240,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2ddd6;
+  }
+  #hw-bar img { height: 30px; width: auto; }
+  #hw-bar .hw-back {
+    color: #7a756e;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  #hw-bar .hw-back:hover { color: #0f0e0d; }
+
+  /* LPのheaderをhana-worksバー＋制作例バナー分だけ下にずらす */
+  body > header { top: 96px !important; }
+
+  /* ── 制作例バナー ── */
+  /* hana-worksバー直下に常に固定表示 */
+  #hw-notice {
+    position: fixed;
+    top: 48px; left: 0; right: 0;
+    z-index: 198;
+    background: #f5efe8;
+    border-bottom: 1px solid #e2ddd6;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.78rem;
+    color: #7a756e;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+  /* スマホのみ改行（hw-brクラス）を表示する */
+  .hw-br { display: none; }
+  @media (max-width: 640px) { .hw-br { display: inline; } }
+
+  /* ── hana-works フッター ── */
+  #hw-footer {
+    background: #0a0908;
+    color: rgba(247,245,240,0.35);
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border-top: 1px solid rgba(247,245,240,0.06);
+  }
+  #hw-footer a { color: rgba(247,245,240,0.35); text-decoration: none; }
+  #hw-footer a:hover { color: rgba(247,245,240,0.7); }
+  @media (max-width: 768px) {
+    #hw-footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem; }
+  }
 </style>
 </head>
 <body class="bg-white">
+
+<!-- ── hana-works ラッパーヘッダー ── -->
+<div id="hw-bar">
+  <a href="../index.html">
+    <img src="../img/hanaworks.png" alt="hana-works">
+  </a>
+  <a href="../index.html" class="hw-back">← ホームへ戻る</a>
+</div>
+
+<!-- ── 制作例のお知らせバナー ── -->
+<div id="hw-notice">
+  こちらはhana-worksの制作例です。<span class="hw-br"><br></span>実際のウェブサイトではありません。
+</div>
 
 <!-- ============ HEADER ============ -->
 <header class="fixed top-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-b border-ink-900/5">
@@ -1389,6 +1466,12 @@
     </div>
   </div>
 </div>
+
+<!-- ── hana-works フッター ── -->
+<footer id="hw-footer">
+  <span style="color: rgba(247,245,240,0.5); font-size: 0.85rem; font-family: 'Noto Serif JP', serif;">hana-works</span>
+  <span>© 2025 hana-works. All rights reserved.</span>
+</footer>
 
 </body>
 </html>
