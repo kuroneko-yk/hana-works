@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お問い合わせ | hana-works</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    /* index.html と共通のカラー変数 */
+    :root {
+      --ink:    #0f0e0d;
+      --paper:  #f7f5f0;
+      --accent: #c8472b;
+      --muted:  #7a756e;
+      --border: #e2ddd6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    .mincho { font-family: 'Shippori Mincho', serif; }
+
+    /* ── ノイズテクスチャオーバーレイ（index.htmlと同じ） ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ── ナビゲーション（index.htmlと同じスタイル） ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(247,245,240,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 48px; width: auto; }
+    /* 「ホームへ戻る」リンク */
+    .nav-back {
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--ink); }
+
+    /* ── ページヘッダー（タイトルエリア） ── */
+    .page-header {
+      padding: 10rem 2rem 5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    /* 「Contact」の小見出し */
+    .page-eyebrow {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    }
+    /* 左右の装飾ライン */
+    .page-eyebrow::before,
+    .page-eyebrow::after {
+      content: ''; display: block;
+      width: 2rem; height: 1px;
+      background: var(--accent);
+    }
+    .page-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+    .page-sub {
+      font-size: 0.9rem; color: var(--muted);
+      line-height: 1.8; max-width: 30rem; margin: 0 auto;
+    }
+
+    /* ── フォームセクション（暗い背景） ── */
+    .form-section {
+      background: var(--ink);
+      padding: 6rem 2rem;
+    }
+    /* フォームの最大幅と中央寄せ */
+    .form-inner { max-width: 640px; margin: 0 auto; }
+
+    /* ── フォームのラベルと入力欄 ── */
+    .form-group { margin-bottom: 2rem; }
+    .form-label {
+      display: block;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(247,245,240,0.55);
+      margin-bottom: 0.5rem;
+    }
+    /* 必須マーク */
+    .form-label span { color: var(--accent); margin-left: 0.2rem; }
+    /* テキスト入力・メール入力の共通スタイル */
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: rgba(247,245,240,0.05);
+      border: 1px solid rgba(247,245,240,0.12);
+      color: var(--paper);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      padding: 0.875rem 1.25rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none; /* Safari向け */
+      appearance: none; /* 標準プロパティ（互換性のため両方記述） */
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(247,245,240,0.22);
+      font-size: 0.9rem;
+    }
+    /* フォーカス時の枠線変化 */
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(247,245,240,0.4);
+      background: rgba(247,245,240,0.08);
+    }
+    /* テキストエリアは縦にリサイズ可能 */
+    .form-textarea { resize: vertical; min-height: 200px; line-height: 1.7; }
+    /* 補足テキスト */
+    .form-note {
+      font-size: 0.72rem;
+      color: rgba(247,245,240,0.28);
+      margin-top: 0.4rem;
+      line-height: 1.6;
+    }
+
+    /* ── 送信ボタン ── */
+    .form-submit {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover:not(:disabled) { background: #b03d24; }
+    /* 送信中は半透明 */
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── 送信後のステータスメッセージ ── */
+    .form-status {
+      display: none;
+      padding: 1rem 1.25rem;
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+    /* 送信成功：緑 */
+    .form-status.success {
+      display: block;
+      background: rgba(72,187,120,0.1);
+      border: 1px solid rgba(72,187,120,0.3);
+      color: #68d391;
+    }
+    /* 送信失敗：赤 */
+    .form-status.error {
+      display: block;
+      background: rgba(200,71,43,0.1);
+      border: 1px solid rgba(200,71,43,0.3);
+      color: #fc8181;
+    }
+
+    /* ── フッター（index.htmlと同じスタイル） ── */
+    footer {
+      background: #0a0908;
+      color: rgba(247,245,240,0.35);
+      padding: 2rem 5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(247,245,240,0.06);
+    }
+    footer a { color: rgba(247,245,240,0.35); text-decoration: none; }
+    footer a:hover { color: rgba(247,245,240,0.7); }
+
+    /* ── スマホ対応 ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .page-header { padding: 8rem 1.5rem 4rem; }
+      .form-section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── ナビゲーション ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="img/hanaworks.png" alt="hana-works" />
+  </a>
+  <a href="index.html" class="nav-back">← ホームへ戻る</a>
+</nav>
+
+<!-- ── ページヘッダー ── -->
+<div class="page-header">
+  <p class="page-eyebrow">Contact</p>
+  <h1 class="page-title mincho">お問い合わせ</h1>
+  <p class="page-sub">
+    まずはお気軽にご連絡ください。<br />
+    無料相談・お見積もり対応しています。<br />
+    2〜3営業日以内にご返信いたします。
+  </p>
+</div>
+
+<!-- ── フォームセクション ── -->
+<section class="form-section">
+  <div class="form-inner">
+    <form id="contact-form" novalidate>
+
+      <!-- お名前 -->
+      <div class="form-group">
+        <label class="form-label" for="name">
+          お名前 <span>*</span>
+        </label>
+        <input
+          class="form-input"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="山田 花子"
+          required
+          autocomplete="name"
+        />
+      </div>
+
+      <!-- メールアドレス -->
+      <div class="form-group">
+        <label class="form-label" for="email">
+          メールアドレス <span>*</span>
+        </label>
+        <input
+          class="form-input"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+        />
+        <p class="form-note">確認メールを自動返信いたします</p>
+      </div>
+
+      <!-- お問い合わせ内容 -->
+      <div class="form-group">
+        <label class="form-label" for="message">
+          お問い合わせ内容 <span>*</span>
+        </label>
+        <textarea
+          class="form-textarea"
+          id="message"
+          name="message"
+          placeholder="ご依頼内容・ご質問をお書きください。&#10;例）LP制作をお願いしたいです。予算は〇〇円ほどで…"
+          required
+        ></textarea>
+      </div>
+
+      <!-- 送信ボタン -->
+      <button type="submit" class="form-submit" id="submit-btn">
+        送信する
+      </button>
+
+      <!-- 送信後のステータスメッセージ表示エリア -->
+      <div class="form-status" id="form-status"></div>
+
+    </form>
+  </div>
+</section>
+
+<!-- ── フッター ── -->
+<footer>
+  <span class="mincho" style="color: rgba(247,245,240,0.5); font-size: 0.85rem;">hana-works</span>
+  <span>© 2025 hana-works. All rights reserved.</span>
+</footer>
+
+<script>
+  // ── フォーム送信処理 ──
+  // ↓ デプロイ後、Cloudflare WorkerのURLに変更してください
+  const WORKER_URL = 'https://hana-works-contact.hanaworks87.workers.dev';
+
+  const form      = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const statusEl  = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // 入力値を取得してトリミング（前後の空白を除去）
+    const name    = form.name.value.trim();
+    const email   = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    // クライアントサイドのバリデーション
+    if (!name || !email || !message) {
+      showStatus('error', 'すべての項目を入力してください。');
+      return;
+    }
+    if (!isValidEmail(email)) {
+      showStatus('error', 'メールアドレスの形式が正しくありません。');
+      return;
+    }
+
+    // 送信中の状態に変更
+    submitBtn.disabled     = true;
+    submitBtn.textContent  = '送信中...';
+    statusEl.className     = 'form-status';
+
+    try {
+      // Cloudflare Worker へ POST
+      const res  = await fetch(WORKER_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ name, email, message }),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        // 送信成功
+        showStatus(
+          'success',
+          'お問い合わせを受け付けました。\n' +
+          '確認メールをお送りしましたのでご確認ください。\n' +
+          '2〜3営業日以内にご返信いたします。'
+        );
+        form.reset();
+        submitBtn.textContent = '✓ 送信完了';
+      } else {
+        throw new Error(data.error || '送信に失敗しました。');
+      }
+    } catch (err) {
+      // 送信失敗
+      showStatus(
+        'error',
+        '送信中にエラーが発生しました。\n' +
+        'お手数ですが、info@hana-works.jp まで直接メールをお送りください。'
+      );
+      submitBtn.disabled    = false;
+      submitBtn.textContent = '送信する';
+    }
+  });
+
+  // ステータスメッセージを表示して画面をスクロール
+  function showStatus(type, msg) {
+    statusEl.className   = `form-status ${type}`;
+    statusEl.textContent = msg;
+    statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // メールアドレスの簡易バリデーション
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+</script>
+
+</body>
+</html>
