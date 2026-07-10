@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Zen+Old+Mincho:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #f6f5f1; color: #1a1a17; font-family: 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #f6f5f1; display: flex; flex-direction: column;">
+
+  <!-- HEADER -->
+  <header style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: clamp(16px,3vw,28px) clamp(20px,4vw,56px); background: rgba(246,245,241,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid #e2ded4;">
+    <div onClick="{{ goToWorks }}" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+      <div style="width: 34px; height: 34px; flex: none;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="logo-mark" shape="rect" placeholder="LOGO" hint-size="34px,34px" style="width:34px;height:34px;"></x-import>
+      </div>
+      <div style="font: 500 15px/1 'Noto Sans JP', sans-serif; letter-spacing: 0.06em;">Hana<span style="font-weight:300">*</span>Works</div>
+    </div>
+    <nav style="display: flex; align-items: center; gap: clamp(18px,3vw,40px); font-size: 12px; letter-spacing: 0.14em; font-weight: 500; text-transform: uppercase;">
+      <div onClick="{{ goToWorks }}" style="cursor: pointer; padding-bottom: 4px; border-bottom: 1px solid {{ worksUnderline }};">Works</div>
+      <div onClick="{{ goToAbout }}" style="cursor: pointer; padding-bottom: 4px; border-bottom: 1px solid {{ aboutUnderline }};">About</div>
+      <div onClick="{{ goToContact }}" style="cursor: pointer; padding-bottom: 4px; border-bottom: 1px solid {{ contactUnderline }};">Contact</div>
+    </nav>
+  </header>
+
+  <main style="flex: 1;">
+
+    <!-- ============ WORKS GRID VIEW ============ -->
+    <sc-if value="{{ isWorks }}" hint-placeholder-val="{{ true }}">
+      <section style="padding: clamp(28px,4vw,48px) clamp(20px,4vw,56px) 0;">
+        <div style="max-width: 640px; margin-bottom: clamp(28px,5vw,56px);">
+          <h1 style="font: 500 clamp(26px,3.4vw,40px)/1.35 'Noto Sans JP', sans-serif; letter-spacing: 0.01em; margin: 0;">LP・Web画像・ECページ・素材まで、<br>必要な一枚をつくる。</h1>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-bottom: clamp(28px,4vw,44px); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">
+          <sc-for list="{{ filterOptions }}" as="opt" hint-placeholder-count="5">
+            <div onClick="{{ opt.onClick }}" style="cursor: pointer; color: {{ opt.color }}; padding-bottom: 3px; border-bottom: 1px solid {{ opt.underline }}; font-weight: {{ opt.weight }};">{{ opt.label }}</div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="padding: 0 clamp(20px,4vw,56px) clamp(48px,7vw,96px);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: clamp(28px,3vw,44px) clamp(24px,3vw,36px);">
+          <sc-for list="{{ filteredProjects }}" as="p" hint-placeholder-count="8">
+            <div onClick="{{ p.onClick }}" style="cursor: pointer;">
+              <div style="width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #e9e6de;">
+                <div style="width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(.2,.7,.2,1);" style-hover="transform: scale(1.045);">
+                  <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slotId }}" shape="rect" placeholder="{{ p.title }}" hint-size="100%,100%" style="width:100%;height:100%;"></x-import>
+                </div>
+              </div>
+              <div style="display: flex; align-items: baseline; justify-content: space-between; margin-top: 14px; gap: 12px;">
+                <div style="font: 500 14px/1.4 'Noto Sans JP', sans-serif;">{{ p.title }}</div>
+                <div style="font-size: 11px; color: #a09c92; letter-spacing: 0.04em; white-space: nowrap;">{{ p.year }}</div>
+              </div>
+              <div style="font-size: 11.5px; color: #8f8b81; letter-spacing: 0.06em; margin-top: 4px;">{{ p.category }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ PROJECT DETAIL VIEW ============ -->
+    <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+      <section style="padding: clamp(24px,4vw,40px) clamp(20px,4vw,56px) clamp(60px,8vw,100px); max-width: 1180px; margin: 0 auto;">
+        <div onClick="{{ goToWorks }}" style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 12px; letter-spacing: 0.1em; color: #6f6b62; margin-bottom: clamp(24px,4vw,40px); text-transform: uppercase;">
+          <span>←</span><span>Works</span>
+        </div>
+
+        <div style="width: 100%; aspect-ratio: 16/9; background: #e9e6de; margin-bottom: clamp(28px,4vw,44px);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ activeProject.slotId }}-hero" shape="rect" placeholder="{{ activeProject.title }}" hint-size="100%,100%" style="width:100%;height:100%;"></x-import>
+        </div>
+
+        <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(220px, 320px); gap: clamp(24px,4vw,56px); align-items: start;">
+          <div>
+            <h2 style="font: 500 clamp(24px,2.6vw,32px)/1.3 'Noto Sans JP', sans-serif; margin: 0 0 20px;">{{ activeProject.title }}</h2>
+            <p style="font: 300 15px/1.9 'Noto Sans JP', sans-serif; color: #45433d; max-width: 62ch; margin: 0;">{{ activeProject.desc }}</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px; font-size: 12.5px; letter-spacing: 0.03em; border-top: 1px solid #e2ded4; padding-top: 18px;">
+            <div style="display: flex; justify-content: space-between; color: #6f6b62;"><span>Category</span><span style="color:#1a1a17;">{{ activeProject.category }}</span></div>
+            <div style="display: flex; justify-content: space-between; color: #6f6b62;"><span>Client</span><span style="color:#1a1a17;">{{ activeProject.client }}</span></div>
+            <div style="display: flex; justify-content: space-between; color: #6f6b62;"><span>Year</span><span style="color:#1a1a17;">{{ activeProject.year }}</span></div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 20px; margin-top: clamp(36px,5vw,56px);">
+          <div style="aspect-ratio: 4/3; background: #e9e6de;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ activeProject.slotId }}-sub1" shape="rect" placeholder="サブ画像 1" hint-size="100%,100%" style="width:100%;height:100%;"></x-import>
+          </div>
+          <div style="aspect-ratio: 4/3; background: #e9e6de;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ activeProject.slotId }}-sub2" shape="rect" placeholder="サブ画像 2" hint-size="100%,100%" style="width:100%;height:100%;"></x-import>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: clamp(48px,7vw,80px); padding-top: 24px; border-top: 1px solid #e2ded4; font-size: 13px;">
+          <div onClick="{{ prevProject.onClick }}" style="cursor: pointer; color: #45433d;">
+            <div style="font-size: 11px; color: #a09c92; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px;">Prev</div>
+            {{ prevProject.title }}
+          </div>
+          <div onClick="{{ nextProject.onClick }}" style="cursor: pointer; color: #45433d; text-align: right;">
+            <div style="font-size: 11px; color: #a09c92; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px;">Next</div>
+            {{ nextProject.title }}
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ ABOUT VIEW ============ -->
+    <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+      <section style="padding: clamp(28px,5vw,56px) clamp(20px,4vw,56px) clamp(60px,8vw,100px); max-width: 1080px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: minmax(200px,320px) minmax(0,1fr); gap: clamp(28px,5vw,64px); align-items: start;">
+          <div style="width: 100%; aspect-ratio: 3/4; background: #e9e6de;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="about-photo" shape="rect" placeholder="プロフィール写真" hint-size="100%,100%" style="width:100%;height:100%;"></x-import>
+          </div>
+          <div>
+            <h1 style="font: 500 clamp(24px,2.8vw,32px)/1.3 'Noto Sans JP', sans-serif; margin: 0 0 22px;">About</h1>
+            <p style="font: 300 15px/1.95 'Noto Sans JP', sans-serif; color: #45433d; max-width: 58ch; margin: 0 0 16px;">フリーランスでWebデザインを制作しています。LP制作を軸に、Web用画像の制作、ネットショップの商品ページ、Webサイトで使う素材づくりまで、一枚の画像から一つのサイトまで幅広く対応しています。</p>
+            <p style="font: 300 15px/1.95 'Noto Sans JP', sans-serif; color: #45433d; max-width: 58ch; margin: 0 0 44px;">伝えたいことを、必要な分だけ・伝わる形で。派手さよりも、読みやすさと見やすさを大切にしています。</p>
+
+            <div style="display: flex; flex-direction: column; gap: 0;">
+              <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+                <div style="display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 18px; padding: 22px 0; border-top: 1px solid #e2ded4;">
+                  <div style="font: 300 13px/1 'Noto Sans JP', sans-serif; color: #a09c92;">{{ s.no }}</div>
+                  <div>
+                    <div style="font: 500 14.5px/1.4 'Noto Sans JP', sans-serif; margin-bottom: 6px;">{{ s.title }}</div>
+                    <div style="font: 300 13.5px/1.8 'Noto Sans JP', sans-serif; color: #6f6b62;">{{ s.desc }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ CONTACT VIEW ============ -->
+    <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+      <section style="padding: clamp(40px,8vw,120px) clamp(20px,4vw,56px) clamp(80px,10vw,140px); max-width: 640px; margin: 0 auto; text-align: center;">
+        <h1 style="font: 500 clamp(24px,2.8vw,32px)/1.3 'Noto Sans JP', sans-serif; margin: 0 0 20px;">Contact</h1>
+        <p style="font: 300 15px/1.9 'Noto Sans JP', sans-serif; color: #45433d; margin: 0 0 40px;">お仕事のご相談・お見積りは、下記のフォームより承っております。</p>
+        <a href="#" style="display: inline-block; padding: 16px 44px; border: 1px solid #1a1a17; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;" style-hover="background: #1a1a17; color: #f6f5f1;">お問い合わせフォーム</a>
+      </section>
+    </sc-if>
+
+  </main>
+
+  <footer style="padding: 22px clamp(20px,4vw,56px); border-top: 1px solid #e2ded4; display: flex; justify-content: space-between; font-size: 11px; color: #a09c92; letter-spacing: 0.04em;">
+    <div>© Hana*Works</div>
+    <div onClick="{{ goToContact }}" style="cursor: pointer;">Contact</div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { view: 'works', filter: 'all', activeId: 'p1' };
+
+  projects = [
+    { id: 'p1', slotId: 'work-p1', title: 'SPRING SALE キャンペーンLP', category: 'LP制作', year: '2026', client: 'アパレルブランド A', desc: '春の新作コレクションを訴求するセールLP。ファーストビューの訴求力とスクロール離脱の少なさを重視した構成で設計しました。' },
+    { id: 'p2', slotId: 'work-p2', title: 'スキンケアブランド 新商品LP', category: 'LP制作', year: '2025', client: 'コスメメーカー B', desc: '成分訴求と使用感が伝わるビジュアル構成のプロダクトLP。ターゲット層に合わせたトーン&マナーで制作しています。' },
+    { id: 'p3', slotId: 'work-p3', title: '商品カタログ バナーセット', category: 'Web画像制作', year: '2025', client: '雑貨メーカー C', desc: 'ECサイトの特集ページ用に使用するバナー一式を制作。サイズ違い・訴求違いのバリエーションを複数展開しました。' },
+    { id: 'p4', slotId: 'work-p4', title: 'SNS投稿用ビジュアル', category: 'Web画像制作', year: '2026', client: '飲食ブランド D', desc: 'Instagram投稿用の商品ビジュアルを定期制作。ブランドの世界観を保ちながら投稿ごとに新鮮さを出す工夫をしています。' },
+    { id: 'p5', slotId: 'work-p5', title: 'アパレルEC 商品ページ', category: 'ネットショップ商品ページ', year: '2025', client: 'アパレルブランド A', desc: 'サイズ感・素材感が伝わる商品詳細ページ。購入前の不安を解消する構成を意識して設計しました。' },
+    { id: 'p6', slotId: 'work-p6', title: 'コスメEC 商品ページ', category: 'ネットショップ商品ページ', year: '2026', client: 'コスメメーカー B', desc: '使用方法とビフォーアフターを軸にした商品ページ。レビューの見せ方にもこだわりました。' },
+    { id: 'p7', slotId: 'work-p7', title: 'アイコン・ボタン素材セット', category: 'Web素材', year: '2025', client: '制作会社 E', desc: 'サイト内で繰り返し使うアイコンとボタンパーツのセット。運用のしやすさを重視したシンプルな設計です。' },
+    { id: 'p8', slotId: 'work-p8', title: '背景・テクスチャ素材', category: 'Web素材', year: '2026', client: '制作会社 E', desc: 'LPやページ背景に使用するテクスチャ素材一式。ブランドトーンに合わせた質感で複数パターン制作しました。' },
+  ];
+
+  categories = ['LP制作', 'Web画像制作', 'ネットショップ商品ページ', 'Web素材'];
+
+  services = [
+    { no: '01', title: 'LP制作', desc: '訴求構成の設計からデザイン・コーディングまで、成果につながるランディングページを制作します。' },
+    { no: '02', title: 'Web画像制作', desc: 'バナー・SNS投稿・特集ページ用ビジュアルなど、Webで使用する画像を制作します。' },
+    { no: '03', title: 'ネットショップ商品ページ', desc: 'ECサイトの商品詳細ページを、購入につながる構成でデザインします。' },
+    { no: '04', title: 'Web素材制作', desc: 'アイコン・背景・パーツなど、サイト運用で繰り返し使う素材を制作します。' },
+  ];
+
+  goToWorks = () => this.setState({ view: 'works' });
+  goToAbout = () => this.setState({ view: 'about' });
+  goToContact = () => this.setState({ view: 'contact' });
+  setFilter = (cat) => this.setState({ filter: cat });
+  openProject = (id) => { this.setState({ view: 'detail', activeId: id }); window.scrollTo(0, 0); };
+
+  renderVals() {
+    const { view, filter, activeId } = this.state;
+    const filteredProjects = (filter === 'all' ? this.projects : this.projects.filter(p => p.category === filter))
+      .map(p => ({ ...p, onClick: () => this.openProject(p.id) }));
+
+    const filterOptions = [{ key: 'all', label: 'すべて' }, ...this.categories.map(c => ({ key: c, label: c }))]
+      .map(o => ({
+        label: o.label,
+        onClick: () => this.setFilter(o.key),
+        color: filter === o.key ? '#1a1a17' : '#8f8b81',
+        underline: filter === o.key ? '#1a1a17' : 'transparent',
+        weight: filter === o.key ? 600 : 400,
+      }));
+
+    const idx = this.projects.findIndex(p => p.id === activeId);
+    const activeProjectRaw = this.projects[idx] || this.projects[0];
+    const activeProject = activeProjectRaw;
+    const prevRaw = this.projects[(idx - 1 + this.projects.length) % this.projects.length];
+    const nextRaw = this.projects[(idx + 1) % this.projects.length];
+    const prevProject = { title: prevRaw.title, onClick: () => this.openProject(prevRaw.id) };
+    const nextProject = { title: nextRaw.title, onClick: () => this.openProject(nextRaw.id) };
+
+    return {
+      isWorks: view === 'works',
+      isDetail: view === 'detail',
+      isAbout: view === 'about',
+      isContact: view === 'contact',
+      worksUnderline: (view === 'works' || view === 'detail') ? '#1a1a17' : 'transparent',
+      aboutUnderline: view === 'about' ? '#1a1a17' : 'transparent',
+      contactUnderline: view === 'contact' ? '#1a1a17' : 'transparent',
+      filteredProjects,
+      filterOptions,
+      activeProject,
+      prevProject,
+      nextProject,
+      services: this.services,
+      goToWorks: this.goToWorks,
+      goToAbout: this.goToAbout,
+      goToContact: this.goToContact,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
