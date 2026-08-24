@@ -345,25 +345,6 @@
   }
   #hw-bar .hw-back:hover { color: #0f0e0d; }
 
-  /* ── 制作例バナー ── */
-  /* hana-worksバー直下に常に固定表示（LP6はheaderがabsoluteなのでずらし不要） */
-  #hw-notice {
-    position: fixed;
-    top: 48px; left: 0; right: 0;
-    z-index: 198;
-    background: #f5efe8;
-    border-bottom: 1px solid #e2ddd6;
-    text-align: center;
-    padding: 0.8rem 1rem;
-    font-size: 0.78rem;
-    color: #7a756e;
-    letter-spacing: 0.06em;
-    line-height: 1.6;
-  }
-  /* スマホのみ改行（hw-brクラス）を表示する */
-  .hw-br { display: none; }
-  @media (max-width: 640px) { .hw-br { display: inline; } }
-
   /* ── hana-works フッター ── */
   #hw-footer {
     background: #0a0908;
@@ -391,11 +372,6 @@
     <img src="../img/hanaworks.png" alt="hana-works">
   </a>
   <a href="../index.html" class="hw-back">← ホームへ戻る</a>
-</div>
-
-<!-- ── 制作例のお知らせバナー ── -->
-<div id="hw-notice">
-  こちらはhana-worksの制作例です。<span class="hw-br"><br></span>実際のウェブサイトではありません。
 </div>
 
 
@@ -473,7 +449,7 @@
       </h1>
       <p class="mt-6 lg:mt-8 text-[14px] sm:text-[15px] leading-[2] text-ink tracking-jp lg:max-w-md mx-auto lg:mx-0">
         東京・大泉の小さなアトリエで、<br />
-        ナチュラル素材のキャンドルを手づくり。<br class="hidden sm:block" />
+        ナチュラル素材のキャンドルを手づくり。<br />
         初心者歓迎 ・ 手ぶらOK ・ 当日予約OK。
       </p>
       <div class="mt-8 lg:mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">

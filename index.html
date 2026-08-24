@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hana*Works | LP・Web画像・ECページ・素材制作ポートフォリオ</title>
+  <meta name="description" content="LP制作を中心に、Web画像制作・ネットショップ商品ページ・Web素材制作を手がけるフリーランスのポートフォリオサイトです。" />
+  <link rel="icon" href="img/icon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Zen+Old+Mincho:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    /* ページ全体のベース設定：背景色・文字色・フォント */
+    body {
+      background: #f6f5f1;
+      color: #1a1a17;
+      font-family: 'Noto Sans JP', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* ボタンのデフォルト装飾（枠線・背景）をリセット */
+    button { background: none; border: none; font: inherit; color: inherit; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ============ ヘッダー：全ページ共通・スクロールしても上部に固定 ============ -->
+  <header class="sticky top-0 z-40 flex items-center justify-between gap-6 px-5 py-4 sm:px-8 sm:py-5 lg:px-14 lg:py-6 bg-[#f6f5f1]/90 backdrop-blur-md border-b border-[#e2ded4]">
+    <!-- ロゴ：クリックでWorks一覧に戻る（画像内に「HANA-WORKS」の文字が含まれているため、テキストは重ねない） -->
+    <button type="button" class="flex items-center" onclick="showView('works')">
+      <img src="img/hanaworks.png" alt="Hana*Works" class="h-6 sm:h-7 w-auto" />
+    </button>
+    <!-- グローバルナビ -->
+    <nav class="flex items-center gap-5 sm:gap-8 lg:gap-10 text-[11px] sm:text-xs tracking-[0.14em] font-medium uppercase">
+      <button type="button" data-nav-link="works" onclick="showView('works')" class="nav-link pb-1 border-b border-[#1a1a17]">Works</button>
+      <button type="button" data-nav-link="about" onclick="showView('about')" class="nav-link pb-1 border-b border-transparent">About</button>
+      <button type="button" data-nav-link="contact" onclick="showView('contact')" class="nav-link pb-1 border-b border-transparent">Contact</button>
+    </nav>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- ============ Worksビュー：作品一覧グリッド（初期表示） ============ -->
+    <section id="view-works" data-view="works">
+      <div class="px-5 sm:px-8 lg:px-14 pt-7 sm:pt-9 lg:pt-12">
+        <h1 class="max-w-xl text-[24px] sm:text-[30px] lg:text-[38px] leading-[1.35] font-medium mb-7 sm:mb-10 lg:mb-14">
+          LP・ECページ・Web画像/素材、<br />必要な一枚をつくる。
+        </h1>
+        <!-- カテゴリフィルター -->
+        <div class="flex flex-wrap gap-x-6 gap-y-2 mb-8 sm:mb-10 lg:mb-11 text-[11px] sm:text-xs tracking-[0.08em] uppercase">
+          <button type="button" class="filter-btn pb-[3px] border-b text-[#1a1a17] font-semibold border-[#1a1a17]" data-filter="all">すべて</button>
+          <button type="button" class="filter-btn pb-[3px] border-b text-[#8f8b81] font-normal border-transparent" data-filter="LP制作">LP制作</button>
+          <button type="button" class="filter-btn pb-[3px] border-b text-[#8f8b81] font-normal border-transparent" data-filter="Web画像制作">Web画像制作</button>
+          <button type="button" class="filter-btn pb-[3px] border-b text-[#8f8b81] font-normal border-transparent" data-filter="ネットショップ商品ページ">ネットショップ商品ページ</button>
+          <button type="button" class="filter-btn pb-[3px] border-b text-[#8f8b81] font-normal border-transparent" data-filter="Web素材">Web素材</button>
+        </div>
+      </div>
+
+      <!-- 作品グリッド：スマホ1列 → sm2列 → lg3列 -->
+      <div class="px-5 sm:px-8 lg:px-14 pb-12 sm:pb-16 lg:pb-24">
+        <div id="works-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-x-8 gap-y-8 sm:gap-y-10 lg:gap-y-11">
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="LP制作"
+            data-title="ピラティススタジオLP" data-year="2026" data-client="Pilates Studio BLOOM"
+            data-desc="横浜市高島にある完全予約制のプライベートマシンピラティススタジオのLP。ファーストビューの訴求力とスクロール離脱の少なさを重視した構成で設計しました。"
+            data-hero="img/pilates_b_lp.jpg"
+            data-sub1="img/pilates_b_1.jpg" data-sub2="img/pilates_b_2.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-01.jpg" alt="ピラティススタジオLP" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">ピラティススタジオLP</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2026</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">LP制作</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="LP制作"
+            data-title="コーヒー豆サブスクLP" data-year="2025" data-client="KURAMI 蔵見"
+            data-desc="世界の産地から届く、毎月一杯の物語をテーマにしたコーヒー豆定期便のLP。産地や焙煎士のストーリーを軸に、購読申し込みへの後押しとなる構成にしました。"
+            data-hero="img/coffe_k_lp.jpg"
+            data-sub1="img/coffee_k_1.jpg" data-sub2="img/coffee_k_2.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-02.jpg" alt="コーヒー豆サブスクLP" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">コーヒー豆サブスクLP</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2025</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">LP制作</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="LP制作"
+            data-title="美容院LP" data-year="2026" data-client="Hair Salon Nico"
+            data-desc="渋谷区幡ヶ谷の髪質改善トリートメント専門サロンのLP。30〜50代の大人女性をターゲットに、施術の安心感と仕上がりの美しさが伝わるビジュアル構成にしました。"
+            data-hero="img/salon_n_lp.jpg"
+            data-sub1="img/salon_n_1.jpg" data-sub2="img/salon_n_2.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-03.jpg" alt="美容院LP" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">美容院LP</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2026</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">LP制作</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="LP制作"
+            data-title="整体院LP" data-year="2025" data-client="笹井整骨院"
+            data-desc="神戸市中央区の交通事故・むちうち専門整骨院のLP。自賠責保険適用で自己負担0円であることを分かりやすく伝え、無料相談への問い合わせにつなげる構成にしました。"
+            data-hero="img/seikotu_n_lp.jpg"
+            data-sub1="img/seikotsu_n-1.jpg" data-sub2="img/seikotsu_n-2.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-05.jpg" alt="整体院LP" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">整体院LP</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2025</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">LP制作</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="LP制作"
+            data-title="キャンドル教室LP" data-year="2026" data-client="Lueur Candle Studio"
+            data-desc="練馬区大泉の小さなキャンドル教室のLP。ナチュラル素材・少人数制・初心者歓迎という魅力が伝わるよう、あたたかみのあるトーン&マナーで制作しました。"
+            data-hero="img/candle_lp.jpg"
+            data-sub1="img/candle_l_1.jpg" data-sub2="img/candle_l_2.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-06.jpg" alt="キャンドル教室LP" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">キャンドル教室LP</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2026</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">LP制作</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="LP制作"
+            data-title="Hana-WorksLP" data-year="2026" data-client="Hana*Works（自社）"
+            data-desc="Hana*Works自身のLPです。集客のためのLPに加えて、料金シミュレーターや予約フォームなど、業務効率化につながる機能もまとめて実装しました。"
+            data-hero="img/hw_lp.jpg"
+            data-link="LP-hanaworks.html"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-07.jpg" alt="Hana-WorksLP" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">Hana-WorksLP</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2026</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">LP制作</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="Web画像制作"
+            data-title="インフォグラフィック/WEB素材" data-year="2026" data-client="自主制作（ポートフォリオ用）"
+            data-desc="情報を整理して伝えるインフォグラフィックとWeb素材の制作例です。データや手順がひと目で理解できるよう、レイアウトと配色を工夫しました。"
+            data-hero="img/infographics.jpg"
+            data-sub1="img/infographics2.jpg" data-sub2="img/infographics3.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-08.jpg" alt="インフォグラフィック/WEB素材" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">インフォグラフィック/WEB素材</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2026</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">Web画像制作</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="ネットショップ商品ページ"
+            data-title="セレクトショップ商品ページ" data-year="2025" data-client="セレクトショップ"
+            data-desc="こだわりの商品をセレクトして届けるショップの商品ページ。素材感や使用シーンが伝わる写真とレイアウトで、購入への安心感を高めました。"
+            data-hero="img/ec-1.jpg"
+            data-sub1="img/ec_2.jpg" data-sub2="img/ec_3.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-09.jpg" alt="セレクトショップ商品ページ" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">セレクトショップ商品ページ</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2025</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">ネットショップ商品ページ</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="ネットショップ商品ページ"
+            data-title="キャンドルショップ商品ページ" data-year="2026" data-client="キャンドルショップ"
+            data-desc="手作りキャンドルのオンラインショップ商品ページ。香りや灯りの雰囲気が伝わるビジュアルを中心に、ギフト用途にも使いやすい構成にしました。"
+            data-hero="img/candle-ec-1.jpg"
+            data-sub1="img/candle-ec-2.jpg" data-sub2="img/candle-ec-3.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-10.jpg" alt="キャンドルショップ商品ページ" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">キャンドルショップ商品ページ</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2026</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">ネットショップ商品ページ</div>
+          </button>
+
+          <button type="button" class="work-card group text-left cursor-pointer" data-category="ネットショップ商品ページ"
+            data-title="コスメショップ商品ページ" data-year="2025" data-client="コスメブランド Lunera"
+            data-desc="スキンケアブランドのオンラインショップ商品ページ。成分やテクスチャーが伝わるビジュアルで、使用感への不安を解消する構成にしました。"
+            data-hero="img/lunera-1.jpg"
+            data-sub1="img/lunera-2.jpg" data-sub2="img/lunera-3.jpg"
+            onclick="openDetail(this)">
+            <div class="w-full aspect-[4/3] overflow-hidden bg-[#e9e6de]">
+              <img src="img/works-11.jpg" alt="コスメショップ商品ページ" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.045]" />
+            </div>
+            <div class="flex items-baseline justify-between mt-3.5 gap-3">
+              <div class="text-sm font-medium">コスメショップ商品ページ</div>
+              <div class="text-[11px] text-[#a09c92] tracking-[0.04em] whitespace-nowrap">2025</div>
+            </div>
+            <div class="text-[11.5px] text-[#8f8b81] tracking-[0.06em] mt-1">ネットショップ商品ページ</div>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 作品詳細ビュー：カードクリックで表示 ============ -->
+    <section id="view-detail" data-view="detail" class="hidden">
+      <div class="px-5 sm:px-8 lg:px-14 pt-6 sm:pt-8 lg:pt-10 pb-16 sm:pb-20 lg:pb-24 max-w-[1180px] mx-auto">
+        <!-- Works一覧に戻るリンク -->
+        <button type="button" onclick="showView('works')" class="inline-flex items-center gap-2 text-[12px] tracking-[0.1em] uppercase text-[#6f6b62] mb-6 sm:mb-8 lg:mb-10">
+          <span>←</span><span>Works</span>
+        </button>
+
+        <!-- メインビジュアル -->
+        <div class="w-full aspect-[16/9] bg-[#e9e6de] mb-7 sm:mb-9 lg:mb-11 overflow-hidden">
+          <img id="detail-hero" src="" alt="" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(220px,320px)] gap-6 sm:gap-10 lg:gap-14 items-start">
+          <div>
+            <h2 id="detail-title" class="text-2xl sm:text-[28px] lg:text-[32px] leading-[1.3] font-medium mb-5"></h2>
+            <p id="detail-desc" class="text-[15px] leading-[1.9] font-light text-[#45433d] max-w-[62ch]"></p>
+            <!-- 実際のページへの案内リンク：外部リンクを持つ作品（Hana-WorksLPなど）のみ表示 -->
+            <a id="detail-link" href="#" target="_blank" rel="noopener" class="hidden mt-6 inline-flex items-center gap-2 px-7 py-3.5 border border-[#1a1a17] text-[13px] tracking-[0.1em] uppercase transition-colors hover:bg-[#1a1a17] hover:text-[#f6f5f1]">
+              実際のLPを見る<span>→</span>
+            </a>
+          </div>
+          <!-- メタ情報 -->
+          <div class="flex flex-col gap-3.5 text-[12.5px] tracking-[0.03em] border-t border-[#e2ded4] pt-4">
+            <div class="flex justify-between text-[#6f6b62]"><span>Category</span><span id="detail-category" class="text-[#1a1a17]"></span></div>
+            <div class="flex justify-between text-[#6f6b62]"><span>Client</span><span id="detail-client" class="text-[#1a1a17]"></span></div>
+            <div class="flex justify-between text-[#6f6b62]"><span>Year</span><span id="detail-year" class="text-[#1a1a17]"></span></div>
+          </div>
+        </div>
+
+        <!-- サブ画像：外部リンクを持つ作品（Hana-WorksLPなど）では非表示にする -->
+        <div id="detail-subs" class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-9 sm:mt-12 lg:mt-14">
+          <div class="aspect-[4/3] bg-[#e9e6de] overflow-hidden">
+            <img id="detail-sub1" src="" alt="サブ画像 1" class="w-full h-full object-cover" />
+          </div>
+          <div class="aspect-[4/3] bg-[#e9e6de] overflow-hidden">
+            <img id="detail-sub2" src="" alt="サブ画像 2" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <!-- 前後の作品へ -->
+        <div class="flex justify-between mt-12 sm:mt-16 lg:mt-20 pt-6 border-t border-[#e2ded4] text-[13px]">
+          <button type="button" onclick="stepDetail(-1)" class="text-left text-[#45433d]">
+            <div class="text-[11px] text-[#a09c92] tracking-[0.1em] uppercase mb-1.5">Prev</div>
+            <span id="detail-prev-title"></span>
+          </button>
+          <button type="button" onclick="stepDetail(1)" class="text-right text-[#45433d]">
+            <div class="text-[11px] text-[#a09c92] tracking-[0.1em] uppercase mb-1.5">Next</div>
+            <span id="detail-next-title"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Aboutビュー ============ -->
+    <section id="view-about" data-view="about" class="hidden">
+      <div class="px-5 sm:px-8 lg:px-14 pt-7 sm:pt-10 lg:pt-14 pb-16 sm:pb-20 lg:pb-24 max-w-[1080px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-[minmax(200px,320px)_minmax(0,1fr)] gap-7 sm:gap-10 lg:gap-16 items-start">
+          <!-- プロフィール写真 -->
+          <div class="w-full max-w-xs md:max-w-none aspect-[3/4] bg-[#e9e6de] overflow-hidden">
+            <img src="img/about.jpg" alt="プロフィール写真" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h1 class="text-2xl sm:text-[28px] lg:text-[32px] leading-[1.3] font-medium mb-5 sm:mb-6">About</h1>
+            <p class="text-[15px] leading-[1.95] font-light text-[#45433d] max-w-[58ch] mb-4">
+              フリーランスでデザイン歴20年以上。LP制作を軸に、Web用画像の制作、ネットショップの商品ページ、Webサイトで使う素材づくりまで、一枚の画像から一つのサイトまで幅広く対応しています。
+            </p>
+            <p class="text-[15px] leading-[1.95] font-light text-[#45433d] max-w-[58ch] mb-9 sm:mb-11">
+              伝えたいことを、必要な分だけ・伝わる形で。派手さよりも、読みやすさと見やすさを大切にしています。
+            </p>
+
+            <!-- サービス一覧 -->
+            <div class="flex flex-col">
+              <div class="grid grid-cols-[40px_minmax(0,1fr)] gap-4 sm:gap-5 py-5 border-t border-[#e2ded4]">
+                <div class="text-[13px] font-light text-[#a09c92]">01</div>
+                <div>
+                  <div class="text-[14.5px] font-medium mb-1.5">LP制作</div>
+                  <div class="text-[13.5px] font-light leading-[1.8] text-[#6f6b62]">訴求構成の設計からデザイン・コーディングまで、成果につながるランディングページを制作します。</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-[40px_minmax(0,1fr)] gap-4 sm:gap-5 py-5 border-t border-[#e2ded4]">
+                <div class="text-[13px] font-light text-[#a09c92]">02</div>
+                <div>
+                  <div class="text-[14.5px] font-medium mb-1.5">Web画像制作</div>
+                  <div class="text-[13.5px] font-light leading-[1.8] text-[#6f6b62]">バナー・SNS投稿・特集ページ用ビジュアルなど、Webで使用する画像を制作します。</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-[40px_minmax(0,1fr)] gap-4 sm:gap-5 py-5 border-t border-[#e2ded4]">
+                <div class="text-[13px] font-light text-[#a09c92]">03</div>
+                <div>
+                  <div class="text-[14.5px] font-medium mb-1.5">ネットショップ商品ページ</div>
+                  <div class="text-[13.5px] font-light leading-[1.8] text-[#6f6b62]">ECサイトの商品詳細ページを、購入につながる構成でデザインします。</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-[40px_minmax(0,1fr)] gap-4 sm:gap-5 py-5 border-t border-[#e2ded4]">
+                <div class="text-[13px] font-light text-[#a09c92]">04</div>
+                <div>
+                  <div class="text-[14.5px] font-medium mb-1.5">Web素材制作</div>
+                  <div class="text-[13.5px] font-light leading-[1.8] text-[#6f6b62]">アイコン・背景・パーツなど、サイト運用で繰り返し使う素材を制作します。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contactビュー ============ -->
+    <section id="view-contact" data-view="contact" class="hidden">
+      <div class="px-5 sm:px-8 lg:px-14 pt-14 sm:pt-20 lg:pt-28 pb-20 sm:pb-24 lg:pb-32 max-w-xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-[28px] lg:text-[32px] leading-[1.3] font-medium mb-5">Contact</h1>
+        <p class="text-[15px] leading-[1.9] font-light text-[#45433d] mb-9 sm:mb-10">
+          お仕事のご相談・お見積りは、下記のフォームより承っております。
+        </p>
+        <a href="contact.html" class="inline-block px-9 sm:px-11 py-4 border border-[#1a1a17] text-[13px] tracking-[0.1em] uppercase transition-colors hover:bg-[#1a1a17] hover:text-[#f6f5f1]">
+          お問い合わせフォーム
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ フッター ============ -->
+  <footer class="flex justify-between px-5 sm:px-8 lg:px-14 py-5 border-t border-[#e2ded4] text-[11px] text-[#a09c92] tracking-[0.04em]">
+    <div>© Hana*Works</div>
+    <button type="button" onclick="showView('contact')">Contact</button>
+  </footer>
+
+  <script>
+    // 現在表示中の作品詳細のインデックス（Prev/Next用）
+    let currentDetailIndex = 0;
+
+    // 指定したビュー（works / detail / about / contact）だけを表示する
+    function showView(view) {
+      document.querySelectorAll('[data-view]').forEach((section) => {
+        section.classList.toggle('hidden', section.dataset.view !== view);
+      });
+      // ナビの下線表示を切り替える（詳細表示中はWorksを選択状態にする）
+      document.querySelectorAll('[data-nav-link]').forEach((btn) => {
+        const isActive = btn.dataset.navLink === view || (view === 'detail' && btn.dataset.navLink === 'works');
+        btn.classList.toggle('border-[#1a1a17]', isActive);
+        btn.classList.toggle('border-transparent', !isActive);
+      });
+      window.scrollTo(0, 0);
+    }
+
+    // カテゴリフィルターの切り替え
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach((b) => {
+          const isActive = b === btn;
+          b.classList.toggle('text-[#1a1a17]', isActive);
+          b.classList.toggle('font-semibold', isActive);
+          b.classList.toggle('border-[#1a1a17]', isActive);
+          b.classList.toggle('text-[#8f8b81]', !isActive);
+          b.classList.toggle('font-normal', !isActive);
+          b.classList.toggle('border-transparent', !isActive);
+        });
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.work-card').forEach((card) => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !show);
+        });
+      });
+    });
+
+    // 作品カードをクリックしたときに詳細ビューへ内容を反映して表示する
+    function openDetail(card) {
+      const cards = Array.from(document.querySelectorAll('.work-card'));
+      currentDetailIndex = cards.indexOf(card);
+      fillDetail(card);
+      showView('detail');
+    }
+
+    // 詳細ビュー内のPrev / Nextボタン
+    function stepDetail(offset) {
+      const cards = Array.from(document.querySelectorAll('.work-card'));
+      currentDetailIndex = (currentDetailIndex + offset + cards.length) % cards.length;
+      fillDetail(cards[currentDetailIndex]);
+      window.scrollTo(0, 0);
+    }
+
+    // カードのdata属性から詳細ビューの中身を埋める
+    function fillDetail(card) {
+      const d = card.dataset;
+      document.getElementById('detail-hero').src = d.hero;
+      document.getElementById('detail-hero').alt = d.title;
+      document.getElementById('detail-title').textContent = d.title;
+      document.getElementById('detail-desc').textContent = d.desc;
+      document.getElementById('detail-category').textContent = d.category;
+      document.getElementById('detail-client').textContent = d.client;
+      document.getElementById('detail-year').textContent = d.year;
+
+      // 外部リンク（実際のLPなど）がある作品は、サブ画像の代わりにリンクボタンを表示する
+      const linkEl = document.getElementById('detail-link');
+      const subsEl = document.getElementById('detail-subs');
+      if (d.link) {
+        linkEl.href = d.link;
+        linkEl.classList.remove('hidden');
+        subsEl.classList.add('hidden');
+      } else {
+        linkEl.classList.add('hidden');
+        subsEl.classList.remove('hidden');
+        document.getElementById('detail-sub1').src = d.sub1;
+        document.getElementById('detail-sub2').src = d.sub2;
+      }
+
+      const cards = Array.from(document.querySelectorAll('.work-card'));
+      const prev = cards[(currentDetailIndex - 1 + cards.length) % cards.length];
+      const next = cards[(currentDetailIndex + 1) % cards.length];
+      document.getElementById('detail-prev-title').textContent = prev.dataset.title;
+      document.getElementById('detail-next-title').textContent = next.dataset.title;
+    }
+  </script>
+</body>
+</html>

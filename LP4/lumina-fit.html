@@ -1379,27 +1379,8 @@ body #trainers {
 }
 #hw-bar .hw-back:hover { color: #0f0e0d; }
 
-/* LPの#navbarをhana-worksバー＋制作例バナー分だけ下にずらす */
-#navbar { top: 96px !important; }
-
-/* ── 制作例バナー ── */
-/* hana-worksバー直下に常に固定表示 */
-#hw-notice {
-  position: fixed;
-  top: 48px; left: 0; right: 0;
-  z-index: 198;
-  background: #f5efe8;
-  border-bottom: 1px solid #e2ddd6;
-  text-align: center;
-  padding: 0.8rem 1rem;
-  font-size: 0.78rem;
-  color: #7a756e;
-  letter-spacing: 0.06em;
-  line-height: 1.6;
-}
-/* スマホのみ改行（hw-brクラス）を表示する */
-.hw-br { display: none; }
-@media (max-width: 640px) { .hw-br { display: inline; } }
+/* LPの#navbarをhana-worksバー分だけ下にずらす */
+#navbar { top: 48px !important; }
 
 /* ── hana-works フッター ── */
 #hw-footer {
@@ -1428,11 +1409,6 @@ body #trainers {
     <img src="../img/hanaworks.png" alt="hana-works">
   </a>
   <a href="../index.html" class="hw-back">← ホームへ戻る</a>
-</div>
-
-<!-- ── 制作例のお知らせバナー ── -->
-<div id="hw-notice">
-  こちらはhana-worksの制作例です。<span class="hw-br"><br></span>実際のウェブサイトではありません。
 </div>
 
 

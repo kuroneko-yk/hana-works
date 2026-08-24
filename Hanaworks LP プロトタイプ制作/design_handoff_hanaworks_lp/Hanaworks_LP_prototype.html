@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: #0e2341; text-decoration: none; }
+  a:hover { color: #b8863f; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<div style="font-family:'Noto Sans JP',sans-serif; background:#f4f1ea; color:#0e2341; overflow-x:hidden; width:100%;">
+
+  <!-- HEADER -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(244,241,234,0.92); backdrop-filter:blur(6px); border-bottom:1px solid rgba(14,35,65,0.1); display:flex; align-items:center; justify-content:space-between; padding:clamp(12px,2vw,18px) clamp(16px,4vw,48px);">
+    <div style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:clamp(20px,2.4vw,26px); letter-spacing:0.04em; color:#0e2341;">hanaworks<span style="color:#f8c974;">.</span></div>
+    <nav style="{{ navDesktopStyle }}">
+      <a href="#service" style="{{ navLinkStyle }}">サービス</a>
+      <a href="#pricing" style="{{ navLinkStyle }}">料金</a>
+      <a href="#works" style="{{ navLinkStyle }}">実績</a>
+      <a href="#faq" style="{{ navLinkStyle }}">FAQ</a>
+      <a href="#contact" style="display:inline-block; background:#0e2341; color:#f4f1ea; padding:10px 22px; border-radius:2px; font-size:14px; font-weight:500; letter-spacing:0.02em;">まずは相談する</a>
+    </nav>
+    <button aria-label="menu" onClick="{{ toggleMenu }}" style="{{ hamburgerBtnStyle }}">
+      <span style="{{ hamburgerBarStyle }}"></span>
+      <span style="{{ hamburgerBarStyle }}"></span>
+      <span style="{{ hamburgerBarStyle }}"></span>
+    </button>
+  </header>
+
+  <div style="{{ mobileMenuStyle }}">
+    <a href="#service" onClick="{{ toggleMenu }}" style="color:#f4f1ea; font-size:22px; font-family:'Noto Serif JP',serif;">サービス内容</a>
+    <a href="#pricing" onClick="{{ toggleMenu }}" style="color:#f4f1ea; font-size:22px; font-family:'Noto Serif JP',serif;">料金目安</a>
+    <a href="#works" onClick="{{ toggleMenu }}" style="color:#f4f1ea; font-size:22px; font-family:'Noto Serif JP',serif;">制作実績</a>
+    <a href="#faq" onClick="{{ toggleMenu }}" style="color:#f4f1ea; font-size:22px; font-family:'Noto Serif JP',serif;">FAQ</a>
+    <a href="#contact" onClick="{{ toggleMenu }}" style="margin-top:12px; background:#f8c974; color:#0e2341; padding:14px 32px; border-radius:2px; font-size:16px; font-weight:600;">まずは相談する</a>
+  </div>
+
+  <!-- HERO -->
+  <section style="{{ heroSectionStyle }}">
+    <div style="position:absolute; inset:0;">
+      <image-slot id="hero-bg" shape="rect" fit="cover" placeholder="ヒーロー背景画像（PSDより差し替え）"></image-slot>
+    </div>
+    <div style="position: absolute; inset: 0; pointer-events: none; background: url(&quot;./uploads/lp-hero.jpg&quot;) center / cover no-repeat"><div style="{{ heroContentStyle }}">
+      
+      
+      
+    <h1 style="{{ heroH1Style }}">集客できるLP＋<br>業務を効率化する「機能」、<br><span style="color:#e0862e;">まとめて</span>作ります。</h1></div></div>
+    
+  </section>
+
+  <!-- CONCERNS -->
+  <section style="background:#f4f0e9; padding:clamp(64px,9vw,120px) clamp(20px,6vw,60px); text-align:center;">
+    <p style="pointer-events:auto; font-size:clamp(14px,1.6vw,17px); line-height:1.9; color:rgba(14,35,65,0.78); margin:0 auto 34px; max-width:480px; text-wrap:pretty; text-align:center;">見た目がキレイなだけのLPではなく、<br>「フォーム連携」「予約システム」「料金シミュレーター」など<br>集客に必要な仕組みもセットでお作りします。</p><a href="#contact" style="pointer-events:auto; display:block; margin:0 auto 64px; width:min(360px,80%);"><img src="./uploads/lp_ctabutton.png" alt="まずは相談する" style="display: block; width: 100%; height: auto; margin-bottom: 0px"></a><div style="{{ labelStyle }}">Your Concerns</div>
+    <h2 style="{{ h2Style }}">こんなお悩みありませんか？</h2>
+    <div style="max-width:1200px; margin:clamp(36px,5vw,56px) auto 0; border-radius:6px; overflow:hidden;">
+      <img src="./lp-onayami-ms03a55z-rvop.png" alt="こんなお悩みありませんか？" style="display:block; width:100%; height:auto;">
+    </div>
+    <p style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:clamp(24px,3.4vw,36px); color:#0e2341; margin:clamp(40px,5vw,56px) 0 0; line-height:1.6;">そのお悩み<br><span style="color:#c99a3f;">まとめて解決</span>いたします！</p>
+  </section>
+
+  <!-- DIFFERENTIATOR -->
+  <section style="position:relative; padding:clamp(56px,8vw,96px) clamp(20px,6vw,60px); text-align:center; overflow:hidden;">
+    <div style="position:absolute; inset:0; background:url(&quot;./uploads/bg-1.jpg&quot;) center / cover no-repeat;"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(244,240,233,0.55) 0%, rgba(244,240,233,0.15) 35%, rgba(244,240,233,0.15) 65%, rgba(244,240,233,0.55) 100%);"></div>
+    <div style="position:relative; max-width:720px; margin:0 auto; background:#ffffff; border-radius:28px; padding:clamp(36px,4.5vw,52px) clamp(28px,4vw,44px); box-shadow:0 20px 44px rgba(14,35,65,0.1);">
+      <p style="max-width:640px; margin:0 auto; font-size:clamp(14px,1.6vw,17px); line-height:1.9; color:rgba(14,35,65,0.82); text-wrap:pretty;">他のLP制作者との最大の違いは「<span style="color: rgb(201, 154, 63); font-weight: 700;">機能</span>」です。<br>見た目のきれいなデザインというだけでなく、<br>「予約システム」、「料金シミュレーター」など<br>集客に必要な仕組みをLPにそのまま組み込みます。</p>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="background:#0e284b; padding:clamp(40px,6vw,64px) clamp(20px,6vw,60px); text-align:center;">
+    <a href="#contact" style="display:block; max-width:1200px; margin:0 auto;">
+      <img src="./uploads/lp-cta_bnr.jpg" alt="デザインから機能実装までワンストップで対応します。まずは相談する" style="display:block; width:100%; height:auto; border-radius:8px;">
+    </a>
+  </section>
+
+  <!-- SERVICE -->
+  <section id="service" style="padding:clamp(64px,9vw,120px) clamp(20px,6vw,60px); text-align:center;">
+    <div style="{{ labelStyle }}">Service</div>
+    <h2 style="{{ h2Style }}">サービス内容</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:clamp(16px,2vw,24px); margin:clamp(36px,5vw,56px) auto 0; max-width:1120px; text-align:left;">
+      <sc-for list="{{ services }}" as="item" hint-placeholder-count="4">
+        <div style="background:#ffffff; border-radius:4px; padding:clamp(26px,2.8vw,32px) clamp(22px,2.4vw,26px); border-top:3px solid #f8c974; box-shadow:0 12px 28px rgba(14,35,65,0.06);">
+          <img src="{{ item.icon }}" alt="{{ item.title }}" style="width:44px; height:44px; margin-bottom:14px;">
+          <div style="font-size:13px; color:#f8c974; font-weight:700; letter-spacing:0.06em; margin-bottom:10px;">{{ item.num }}</div>
+          <h3 style="font-family:'Noto Serif JP',serif; font-size:clamp(17px,1.8vw,20px); margin:0 0 12px; color:#0e2341;">{{ item.title }}</h3>
+          <p style="margin:0; font-size:14px; line-height:1.85; color:rgba(14,35,65,0.75); text-wrap:pretty;">{{ item.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <p style="max-width:1120px; margin:14px auto 0; font-size:12px; color:rgba(14,35,65,0.5); text-align:right;">＊サーバー状況、ご希望などで外部連携もご利用できます。</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:clamp(14px,1.8vw,20px); margin:clamp(32px,4vw,44px) auto 0; max-width:900px;">
+      <sc-for list="{{ badges }}" as="b" hint-placeholder-count="4">
+        <div style="background:#ffffff; border:1px solid rgba(14,35,65,0.08); border-radius:6px; padding:24px 16px; text-align:center; box-shadow:0 10px 24px rgba(14,35,65,0.05);">
+          <img src="{{ b.icon }}" alt="{{ b.label }}" style="width:40px; height:40px; margin-bottom:12px;">
+          <div style="font-size:13px; color:#0e2341; font-weight:600;">{{ b.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" style="background:#ffffff; padding:clamp(64px,9vw,120px) clamp(20px,6vw,60px); text-align:center;">
+    <div style="{{ labelStyle }}">Pricing</div>
+    <h2 style="{{ h2Style }}">料金目安</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:stretch; gap:clamp(18px,2.4vw,28px); margin:clamp(40px,5vw,60px) auto 0; max-width:1160px;">
+      <sc-for list="{{ plans }}" as="plan" hint-placeholder-count="3">
+        <div style="{{ plan.cardStyle }}">
+          <sc-if value="{{ plan.popular }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; top:0; left:50%; transform:translate(-50%,-50%); background:#f8c974; color:#0e2341; font-size:12px; font-weight:700; letter-spacing:0.08em; padding:6px 18px; border-radius:100px;">POPULAR</div>
+          </sc-if>
+          <div style="{{ plan.tagStyle }}">{{ plan.tag }}</div>
+          <h3 style="{{ plan.nameStyle }}">{{ plan.name }}</h3>
+          <div style="{{ plan.priceStyle }}">{{ plan.price }}</div>
+          <p style="{{ plan.descStyle }}">{{ plan.desc }}</p>
+          <ul style="list-style:none; margin:16px 0 0; padding:0; text-align:left;">
+            <sc-for list="{{ plan.features }}" as="f" hint-placeholder-count="4">
+              <li style="{{ plan.featureStyle }}">
+                <span style="color:#f8c974; flex:none;">＋</span><span>{{ f }}</span>
+              </li>
+            </sc-for>
+          </ul>
+          <div style="{{ plan.durationStyle }}">納期目安：{{ plan.duration }}</div>
+          <a href="#contact" style="{{ plan.btnStyle }}">相談する</a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="padding:clamp(64px,9vw,120px) clamp(20px,6vw,60px); text-align:center;">
+    <div style="{{ labelStyle }}">Process</div>
+    <h2 style="{{ h2Style }}">制作の流れ</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:clamp(18px,2.2vw,24px); margin:clamp(40px,5vw,60px) auto 0; max-width:1160px;">
+      <sc-for list="{{ steps }}" as="step" hint-placeholder-count="5">
+        <div style="position:relative; background:#ffffff; border-radius:10px; padding:clamp(28px,3vw,34px) clamp(20px,2.2vw,24px) clamp(24px,2.6vw,28px); text-align:center; box-shadow:0 12px 28px rgba(14,35,65,0.06); border-top:3px solid #f8c974;">
+          <div style="position:absolute; top:-14px; right:-14px; width:30px; height:30px; border-radius:50%; background:#0e2341; color:#f8c974; font-family:'Noto Serif JP',serif; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:13px;">{{ step.num }}</div>
+          <div style="width:64px; height:64px; border-radius:50%; background:rgba(248,201,116,0.18); display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+            <img src="{{ step.icon }}" alt="{{ step.title }}" style="width:34px; height:34px;"></img>
+          </div>
+          <h3 style="font-family:'Noto Serif JP',serif; font-size:clamp(16px,1.8vw,18px); margin:0 0 10px; color:#0e2341;">{{ step.title }}</h3>
+          <p style="margin:0; font-size:13px; line-height:1.75; color:rgba(14,35,65,0.7); text-wrap:pretty;">{{ step.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section id="works" style="background:#0e2341; padding:clamp(64px,9vw,120px) clamp(20px,6vw,60px); text-align:center;">
+    <div style="{{ labelStyleDark }}">Works</div>
+    <h2 style="{{ h2StyleDark }}">制作実績</h2>
+    <p style="max-width:600px; margin:16px auto 0; font-size:14px; color:rgba(244,241,234,0.72); line-height:1.8;">これまでに手がけた主な制作物をご紹介します。</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(18px,2.4vw,26px); margin:clamp(40px,5vw,56px) auto 0; max-width:1160px; text-align:left;">
+      <sc-for list="{{ works }}" as="w" hint-placeholder-count="3">
+        <div style="background:#132a4c; border-radius:4px; overflow:hidden; border:1px solid rgba(248,201,116,0.15);">
+          <div style="width:100%; aspect-ratio:4/3;">
+            <image-slot id="{{ w.slotId }}" shape="rect" fit="cover" placeholder="{{ w.placeholder }}" src="{{ w.src }}"></image-slot>
+          </div>
+          <div style="padding:22px 22px 26px;">
+            <div style="display:inline-block; font-size:11px; letter-spacing:0.06em; color:#0e2341; background:{{ w.color }}; padding:5px 12px; border-radius:100px; margin-bottom:12px; font-weight:600;">{{ w.tag }}</div>
+            <h3 style="font-family:'Noto Serif JP',serif; font-size:18px; margin:0 0 10px; color:#f4f1ea;">{{ w.title }}</h3>
+            <p style="margin:0; font-size:13px; line-height:1.85; color:rgba(244,241,234,0.72); text-wrap:pretty;">{{ w.desc }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="max-width:900px; margin:clamp(36px,4vw,48px) auto 0; padding:clamp(22px,2.6vw,28px); border:1px solid rgba(248,201,116,0.25); border-radius:4px;">
+      <p style="margin:0 0 10px; font-size:13px; color:#f8c974; letter-spacing:0.04em;">他にも多数の業種に対応しております。</p>
+      <p style="margin:0; font-size:13px; line-height:1.9; color:rgba(244,241,234,0.78); text-wrap:pretty;">対応可能業種：美容・サロン、美容商品／医療・整骨院／飲食店／不動産／EC／士業／スクール・教室／ジム・ピラティスなど。その他の業種もご相談ください。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding:clamp(64px,9vw,120px) clamp(20px,6vw,60px); text-align:center;">
+    <div style="{{ labelStyle }}">FAQ</div>
+    <h2 style="{{ h2Style }}">よくある質問</h2>
+    <div style="max-width:760px; margin:clamp(36px,5vw,52px) auto 0; text-align:left;">
+      <sc-for list="{{ faqs }}" as="item" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(14,35,65,0.14);">
+          <button onClick="{{ item.toggle }}" style="width:100%; background:none; border:none; cursor:pointer; display:flex; gap:16px; align-items:center; padding:20px 4px; text-align:left; font-family:'Noto Sans JP',sans-serif;">
+            <span style="flex:none; font-family:'Noto Serif JP',serif; font-weight:700; color:#f8c974; font-size:15px;">Q</span>
+            <span style="flex:1; font-size:clamp(14px,1.6vw,16px); color:#0e2341; font-weight:500;">{{ item.q }}</span>
+            <span style="{{ item.arrowStyle }}">▼</span>
+          </button>
+          <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0 0 22px 30px; font-size:14px; line-height:1.85; color:rgba(14,35,65,0.72); max-width:660px; text-wrap:pretty;">{{ item.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:#0e2341; padding:clamp(64px,9vw,120px) clamp(20px,6vw,60px);">
+    <div style="max-width:640px; margin:0 auto; text-align:center;">
+      <div style="{{ labelStyleDark }}">Contact</div>
+      <h2 style="{{ h2StyleDark }}">お問い合わせ</h2>
+      <p style="margin:16px 0 0; font-size:14px; line-height:1.9; color:rgba(244,241,234,0.75);">まずはお気軽にご連絡ください。無料相談・お見積もり対応しています。<br>2〜3営業日以内にご返信いたします。</p>
+    </div>
+    <sc-if value="{{ !formSubmitted }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ handleSubmit }}" style="max-width:560px; margin:clamp(36px,4vw,48px) auto 0; display:flex; flex-direction:column; gap:18px;">
+        <label style="display:flex; flex-direction:column; gap:8px;">
+          <span style="font-size:13px; color:#f8c974;">お名前 *</span>
+          <input required="" type="text" name="name" style="background:rgba(244,241,234,0.06); border:1px solid rgba(244,241,234,0.25); border-radius:2px; padding:14px 16px; color:#f4f1ea; font-size:15px; font-family:inherit;">
+        </label>
+        <label style="display:flex; flex-direction:column; gap:8px;">
+          <span style="font-size:13px; color:#f8c974;">メールアドレス *</span>
+          <input required="" type="email" name="email" style="background:rgba(244,241,234,0.06); border:1px solid rgba(244,241,234,0.25); border-radius:2px; padding:14px 16px; color:#f4f1ea; font-size:15px; font-family:inherit;">
+        </label>
+        <label style="display:flex; flex-direction:column; gap:8px;">
+          <span style="font-size:13px; color:#f8c974;">お問い合わせ内容 *</span>
+          <textarea required="" name="message" rows="5" style="background:rgba(244,241,234,0.06); border:1px solid rgba(244,241,234,0.25); border-radius:2px; padding:14px 16px; color:#f4f1ea; font-size:15px; font-family:inherit; resize:vertical;"></textarea>
+        </label>
+        <p style="margin:0; font-size:12px; color:rgba(244,241,234,0.55);">確認メールを自動返信いたします</p>
+        <button type="submit" style="margin-top:8px; background:#f8c974; color:#0e2341; border:none; border-radius:2px; padding:16px; font-size:16px; font-weight:700; cursor:pointer; font-family:inherit;">送信する</button>
+      </form>
+    </sc-if>
+    <sc-if value="{{ formSubmitted }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:560px; margin:clamp(36px,4vw,48px) auto 0; text-align:center; padding:40px 24px; border:1px solid rgba(248,201,116,0.35); border-radius:4px;">
+        <p style="font-family:'Noto Serif JP',serif; font-size:20px; color:#f8c974; margin:0 0 12px;">お問い合わせありがとうございます</p>
+        <p style="font-size:14px; color:rgba(244,241,234,0.78); margin:0; line-height:1.8;">確認メールをお送りしました。2〜3営業日以内に担当よりご連絡いたします。</p>
+      </div>
+    </sc-if>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0a1c33; padding:clamp(36px,5vw,48px) clamp(20px,6vw,60px); text-align:center;">
+    <div style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:20px; color:#f4f1ea; margin-bottom:14px;">hanaworks<span style="color:#f8c974;">.</span></div>
+    <p style="margin:0; font-size:12px; color:rgba(244,241,234,0.45);">© 2026 hanaworks. All rights reserved.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    mobileMenuOpen: false,
+    openFaqIndex: null,
+    formSubmitted: false,
+    isNarrow: false,
+  };
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 880px)');
+    this.updateNarrow = () => this.setState({ isNarrow: this.mq.matches });
+    this.updateNarrow();
+    this.mq.addEventListener('change', this.updateNarrow);
+  }
+
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.updateNarrow);
+  }
+
+  toggleMenu = () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen }));
+
+  toggleFaq = (i) => this.setState(s => ({ openFaqIndex: s.openFaqIndex === i ? null : i }));
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({ formSubmitted: true });
+  };
+
+  renderVals() {
+    const navLinkStyle = "color:#0e2341; font-size:14px; font-weight:500; letter-spacing:0.01em;";
+    const labelStyle = "font-size:13px; letter-spacing:0.14em; color:#b8863f; font-weight:700; margin-bottom:14px;";
+    const labelStyleDark = "font-size:13px; letter-spacing:0.14em; color:#f8c974; font-weight:700; margin-bottom:14px;";
+    const h2Style = "font-family:'Noto Serif JP',serif; font-weight:600; font-size:clamp(24px,3.2vw,36px); margin:0; color:#0e2341;";
+    const h2StyleDark = "font-family:'Noto Serif JP',serif; font-weight:600; font-size:clamp(24px,3.2vw,36px); margin:0; color:#f4f1ea;";
+
+    const isNarrow = this.state.isNarrow;
+    const heroSectionStyle = isNarrow
+      ? 'position:relative; width:100%; aspect-ratio:16/9; min-height:auto; display:flex; align-items:center; overflow:hidden;'
+      : 'position:relative; min-height:clamp(560px,100vh,880px); display:flex; align-items:center; overflow:hidden;';
+    const heroContentStyle = isNarrow
+      ? 'position:relative; z-index:2; padding:clamp(14px,3.5vw,20px); max-width:56%; pointer-events:none;'
+      : 'position:relative; z-index:2; padding:clamp(28px,6vw,64px); max-width:720px; pointer-events:none;';
+    const heroH1Style = isNarrow
+      ? "pointer-events:auto; font-family:'Noto Serif JP',serif; font-weight:700; color:#0e2341; font-size:clamp(12px,3.4vw,17px); line-height:1.5; margin:0; text-wrap:pretty;"
+      : "pointer-events:auto; font-family:'Noto Serif JP',serif; font-weight:700; color:#0e2341; font-size:clamp(22px,3.2vw,34px); line-height:1.6; margin:0 0 28px; text-wrap:pretty; white-space:nowrap;";
+    const navDesktopStyle = `align-items:center; gap:clamp(18px,2.5vw,36px); display:${isNarrow ? 'none' : 'flex'};`;
+    const hamburgerBtnStyle = `flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; z-index:60; display:${isNarrow ? 'flex' : 'none'};`;
+    const hamburgerBarStyle = "width:24px; height:2px; background:#0e2341; border-radius:2px;";
+    const mobileMenuStyle = `position:fixed; inset:0; background:#0e2341; z-index:40; display:${this.state.mobileMenuOpen ? 'flex' : 'none'}; flex-direction:column; align-items:center; justify-content:center; gap:28px;`;
+
+    const concerns = [
+      { text: 'LPを作ったけど、お問い合わせが全然来ない…' },
+      { text: '見積もりに時間がかかる…' },
+      { text: '予約システムも欲しいけど、別で頼むと高い…' },
+    ];
+
+    const services = [
+      { num: '01', title: 'LP制作', desc: '集客・CVに特化したランディングページを制作。コンセプト設計から公開まで一貫して対応します。', icon: './uploads/lp_icon.png' },
+      { num: '02', title: 'フォーム作成', desc: 'お問い合わせ・申し込みフォームの設計・実装。', icon: './uploads/form_icon.png' },
+      { num: '03', title: '予約システム', desc: '業種に合わせたカスタム予約システムを構築＊。カレンダー連携・自動返信メール通知にも対応。', icon: './uploads/reservation_icon.png' },
+      { num: '04', title: '料金シミュレーター', desc: 'ユーザーが自分で見積もりを確認できるインタラクティブな料金計算ツールを実装。問い合わせの質が向上します。', icon: './uploads/price_simulator_icon.png' },
+    ];
+
+    const badges = [
+      { label: 'レスポンシブ対応', icon: './uploads/responsive_design_icon.png' },
+      { label: '計測タグ設置', icon: './uploads/Tracking_tag_icon.png' },
+      { label: 'SEO設定', icon: './uploads/seo_icon-34365f0c.png' },
+      { label: '納品後サポート', icon: './uploads/support_icon.png' },
+    ];
+
+    const cardBase = 'flex:1 1 300px; max-width:340px; background:#f8f7f3; border-radius:4px; padding:36px 28px 32px; position:relative; box-shadow:0 12px 28px rgba(14,35,65,0.06); display:flex; flex-direction:column;';
+    const cardPopular = 'flex:1 1 300px; max-width:340px; background:#0e2341; border-radius:4px; padding:40px 28px 32px; position:relative; box-shadow:0 20px 40px rgba(14,35,65,0.22); transform:scale(1.03); display:flex; flex-direction:column;';
+    const btnBase = 'display:block; text-align:center; background:#0e2341; color:#f4f1ea; padding:13px; border-radius:2px; font-size:14px; font-weight:600;';
+    const btnPopular = 'display:block; text-align:center; background:#f8c974; color:#0e2341; padding:13px; border-radius:2px; font-size:14px; font-weight:700;';
+
+    const textStylesLight = {
+      tagStyle: 'font-size:13px; color:rgba(14,35,65,0.5); letter-spacing:0.08em; margin-bottom:10px;',
+      nameStyle: "font-family:'Noto Serif JP',serif; font-size:clamp(19px,2vw,22px); margin:0 0 14px; color:#0e2341;",
+      priceStyle: "font-family:'Noto Serif JP',serif; font-size:clamp(24px,2.6vw,30px); font-weight:700; color:#0e2341; margin-bottom:16px;",
+      descStyle: 'font-size:13px; line-height:1.8; color:rgba(14,35,65,0.7); min-height:56px; text-align:left; text-wrap:pretty;',
+      featureStyle: 'display:flex; gap:8px; align-items:flex-start; font-size:13px; color:rgba(14,35,65,0.82); padding:6px 0; border-top:1px solid rgba(14,35,65,0.08);',
+      durationStyle: 'font-size:12px; color:rgba(14,35,65,0.5); margin:16px 0 20px;',
+    };
+    const textStylesDark = {
+      tagStyle: 'font-size:13px; color:rgba(244,241,234,0.6); letter-spacing:0.08em; margin-bottom:10px;',
+      nameStyle: "font-family:'Noto Serif JP',serif; font-size:clamp(19px,2vw,22px); margin:0 0 14px; color:#f4f1ea;",
+      priceStyle: "font-family:'Noto Serif JP',serif; font-size:clamp(24px,2.6vw,30px); font-weight:700; color:#f8c974; margin-bottom:16px;",
+      descStyle: 'font-size:13px; line-height:1.8; color:rgba(244,241,234,0.75); min-height:56px; text-align:left; text-wrap:pretty;',
+      featureStyle: 'display:flex; gap:8px; align-items:flex-start; font-size:13px; color:rgba(244,241,234,0.85); padding:6px 0; border-top:1px solid rgba(244,241,234,0.15);',
+      durationStyle: 'font-size:12px; color:rgba(244,241,234,0.55); margin:16px 0 20px;',
+    };
+
+    const plans = [
+      { tag: 'PLAN 01', name: 'LP基本', price: '¥50,000〜', desc: 'シンプルな構成のランディングページ。スピーディに公開したい方に。',
+        features: ['ページ構成・コピー提案', 'レスポンシブ対応', 'お問い合わせフォーム', '公開サポート'],
+        duration: '2〜3週間', popular: false, cardStyle: cardBase, btnStyle: btnBase, ...textStylesLight },
+      { tag: 'PLAN 02', name: 'LP＋機能', price: '¥100,000〜', desc: 'LPに予約・シミュレーターなどの機能を組み合わせたプラン。',
+        features: ['LP基本の全内容', '予約／シミュレーター機能', '自動返信メール設定', 'アクセス解析設定'],
+        duration: '3〜5週間', popular: true,
+        cardStyle: cardPopular, btnStyle: btnPopular, ...textStylesDark },
+      { tag: 'PLAN 03', name: 'フルカスタム', price: '要相談', desc: '複数ページ・複数の機能・継続サポートが必要な案件に対応。',
+        features: ['ご要望に応じた自由設計', '複数ページ構成', '独自機能の組み込み', '継続的な運用サポート'],
+        duration: 'ご相談の上で決定', popular: false, cardStyle: cardBase, btnStyle: btnBase, ...textStylesLight },
+    ];
+
+    const steps = [
+      { num: '01', title: 'ヒアリング、お見積り', desc: '目的・ターゲットなどをお聞きし、最適な構成をご提案します。', icon: './uploads/quote@2x-8.png' },
+      { num: '02', title: 'ご購入', desc: '内容にご納得いただきましたら、お申込み・ご入金のお手続きをお願いします。', icon: './uploads/cart@2x-8.png' },
+      { num: '03', title: '制作', desc: 'ご要望をもとに、デザイン・システムを制作します。', icon: './uploads/design@2x-8.png' },
+      { num: '04', title: 'ご確認、修正', desc: 'ご確認いただき、必要に応じて修正を行います。', icon: './uploads/review@2x-8.png' },
+      { num: '05', title: '納品', desc: '最終確認後、納品・公開サポートまで丁寧に対応いたします。', icon: './uploads/delivery@2x-8.png' },
+    ];
+
+    const works = [
+      { slotId: 'work-seitai', placeholder: '整体院LP キャプチャ', tag: '整体／美容', color: '#a9c9a0', title: '整体院', desc: '交通事故によるむち打ち専門の整体院LP。複雑な料金体系になりやすいため、料金シミュレーターを実装しました。明るく広々とした院内の雰囲気と合ったグリーンをベースにデザインしました。', src: './uploads/works-01.jpg' },
+      { slotId: 'work-pilates', placeholder: 'ピラティススタジオLP キャプチャ', tag: 'ジム／ヨガ／ピラティス', color: '#e3b7bd', title: 'ピラティススタジオ', desc: '広々としたスタジオに数台のマシンピラティス。丁寧でやさしいと定評のあるインストラクターのイメージカラーであるダスティピンクを基調としたデザインです。外部連携の予約フォーム、LINE連携を実装しました。', src: './uploads/works-05.jpg' },
+      { slotId: 'work-candle', placeholder: 'キャンドル教室LP キャプチャ', tag: '教室・塾', color: '#d9a9a0', title: 'キャンドル教室', desc: 'スケジュールカレンダー、予約フォームを実装しました。ウッディでナチュラルなご自宅教室とローズペタルのキャンドルをイメージしたアンティークローズカラーを基調としたデザインです。', src: './uploads/works-06.jpg' },
+    ];
+
+    const faqData = [
+      { q: 'LPを依頼するにあたり、どのようなものを準備すればいいですか？', a: '掲載したいサービス内容や強み、写真素材（あれば）、ご希望の雰囲気の参考LPなどをご準備いただけるとスムーズです。無い場合はヒアリングの中で一緒に整理していきます。' },
+      { q: '原稿はどのような形式でまとめるのがいいですか？', a: 'Wordやテキストファイル、箇条書きメモなど形式は問いません。まとまっていなくても、ヒアリングを通して構成・コピーをこちらでご提案いたします。' },
+      { q: 'デザインのイメージがわかないのですがご依頼しても大丈夫でしょうか？', a: '問題ございません。ご要望やお好みの雰囲気をヒアリングしながら、業種や客層に合わせたデザイン案をこちらからご提案します。' },
+      { q: '販売する商品の写真がないのですが、それでも依頼は可能ですか？', a: '可能です。フリー素材や有料素材のご提案、必要に応じて画像加工などで対応いたします。' },
+      { q: '「機能」の組み込みは１つでもかまいませんか？', a: 'もちろん可能です。予約システムのみ、料金シミュレーターのみなど、必要な機能だけを組み合わせてご依頼いただけます。' },
+      { q: '納品後の修正は可能ですか？', a: '納品後も一定期間は軽微な修正に対応しております。継続的な運用サポートが必要な場合はフルカスタムプランにてご相談ください。' },
+    ].map((f, i) => ({
+      ...f,
+      open: this.state.openFaqIndex === i,
+      toggle: () => this.toggleFaq(i),
+      arrowStyle: `font-size:12px; color:#0e2341; transition:transform 0.2s; transform:rotate(${this.state.openFaqIndex === i ? '180deg' : '0deg'});`,
+    }));
+
+    return {
+      navLinkStyle, navDesktopStyle, heroSectionStyle, heroContentStyle, heroH1Style, labelStyle, labelStyleDark, h2Style, h2StyleDark,
+      hamburgerBtnStyle, hamburgerBarStyle, mobileMenuStyle,
+      toggleMenu: this.toggleMenu,
+      concerns, services, badges, plans, steps, works,
+      faqs: faqData,
+      formSubmitted: this.state.formSubmitted,
+      handleSubmit: this.handleSubmit,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
